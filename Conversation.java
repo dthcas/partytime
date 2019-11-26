@@ -13,3 +13,33 @@ Methods:
 •	public void beginConversation() – starts a conversation
 •	public void endConversation() – terminates a conversation
 */
+
+public class Conversation {
+	
+	int ID;	
+	boolean status;
+	Person p1;
+	Person p2;
+	int length;
+	Topic [] topics;
+	
+	public Conversation(Person a, Person b) {
+		p1 = a;
+		p2 = b;
+		status = true;
+		length = 0;
+		topics = new Topic[5];
+	}
+	
+	public Topic prompt(Person p) {
+		
+		Topic t = p.speak();
+		return(t);
+	}
+	
+	public void beginConversation() {
+		
+		System.
+	}
+
+}
