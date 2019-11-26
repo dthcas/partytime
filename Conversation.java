@@ -39,7 +39,12 @@ public class Conversation {
 	
 	public void beginConversation() {
 		
-		System.
+		System.out.print("A conversation between "+p1.getName()+" and "+p2.getName()+" has started");
+	}
+	
+	public void endConversation() {
+		
+		System.out.print("The conversation between "+p1.getName()+" and "+p2.getName()+" has ended");
 	}
 
 }
