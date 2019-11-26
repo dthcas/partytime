@@ -1,15 +1,34 @@
-/* Impression
+/* Impression: A class which models a person's impression of another person */
 
-Variables:
-•	int id
-•	double interesting
-•	double attractive
-•	double kind
-•	double chemistry
+public class Impression extends Code {
+	private int id;
+	private double interesting;
+	private double attractive;
+	private double kind;
+	private double chemistry;
+	private double overallimpression;
+	
+	public void setInteresting(double i) {
+		interesting = i;
+	}
+	
+	public void setAttractive(double a) {
+		attractive = a;
+	}
+	
+	public void setKind(double k) {
+		kind = k;
+	}
 
-Methods:
-•	public double getImpression() – This method can synthesize the results of the different values to give an overall impression of the person from 0 to 2
-•	public void setInteresting(double i)
-•	public void setAttractive(double a)
-•	public void setKind(double k)
-*/
+	public void setChemistry(double c) {
+
+		chemistry = c;
+	}	
+	
+	public double getImpression() {
+		overallimpression = (interesting + attractive + kind + getChemistry(id,id))/4;
+		return overallimpression;
+	}
+	
+	
+}
