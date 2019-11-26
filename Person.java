@@ -1,25 +1,81 @@
-/*Person
-Variables:   
-•	int age
-•	String name
-•	private final int id
-•	private final double empathy
-•	private final double attractiveness
-•	private final double intelligence
-•	private final double charisma
-•	private Impression [] impressions
-•	Topic [] topics
+/*Person class - To model a person who attends a party, interacts and forms opinions about the guests */
 
-Methods:
-•	public int getAge()
-•	public void setAge(int a)
-•	public String getName()
-•	public void setName(String n)
-•	public double getInterestLevel(String name) – takes the name of a topic and returns how interested that person is from 0 to 2
-•	public double listen(Person p, Topic t) – takes a person speaking and the topic they are speaking about and returns a score based on their interest and empathy settings from 0 to 2.
-•	private void judge(Person p, Topic t) – forms an internal Impression about that person from the topic they are talking about and their non-verbal attributes.
-•	private void updateInterestLevel(String name, double factor) – if someone is very interesting or compelling, then its possible that a person may update their own interest in that topic by a factor from 0.7 to 1.3 (+/- 30%). By the same token, if someone really is negative, then they may decrease a person’s enjoyment of that topic.
-•	public Topic speak() – return a topic to talk about in a conversation.
-•	public double getAttractiveness()
-•	public Impression getImpression(int i) – takes an ID of a person and returns the impression of that person
-*/
+import java.util.Random;
+
+public class Person {
+
+	private int age; private String name; private final int id;
+	private final double empathy, attractiveness, intelligence, charisma;
+	private Impression[] impressions; private Topic[] topics;
+	
+	public Person(int age, String name, int id, double em, double at, double in, double ch) {
+		this.age = age; this.name = name; this.id = id;
+		this.empathy = em; this.attractiveness = at;
+		this.intelligence = in; this.charisma = ch;
+	}
+	
+	public int getAge() {return this.age;}
+	public void setAge(int a) {this.age = a;}
+	public String getName() {return this.name;}
+	public void setName(String n) {this.name = n;}
+	
+	public double getInterestLevel(String name) {
+		int len = this.topics.length;
+		int result = Util.binarySearch(this.topics, 0, len - 1, name);
+		return this.topics[result].getInterest();
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+
+// TODO Dummy classes for compiling
+
+class Impression {
+	
+	private int id; private double interesting, attractive, kind, chemistry;
+	
+	public double getImpression() {return new Random().nextDouble();}
+	
+	public void setInteresting(double i) {this.interesting = i;}
+	public void setAttractive(double a) {this.attractive = a;}
+	public void setKind(double k) {this.kind = k;}
+	public void setChemistry(double c) {this.chemistry = c;}
+	
+}
+
+class Topic {
+	
+	private String name; private double interest, importance;
+	
+	public String getName() {return this.name;}
+	public double getInterest() {return this.interest;}
+	public double getImportance() {return this.importance;}
+	
+	public void setInterest(double i) {this.interest = i;}
+	public void setImportance(double i) {this.importance = i;}
+	
+}
+
+// TODO Utility tools for clean workspace
+
+class Util {
+	
+	public static int binarySearch(Topic arr[], int l, int r, String x) { 
+		if (r >= l) { 
+        	int mid = l + (r - l) / 2; 
+        	if (arr[mid].getName().compareTo(x) == 0) return mid; 
+			if (arr[mid].getName().compareTo(x) > 0) {
+				return binarySearch(arr, l, mid - 1, x); 
+			}
+            return binarySearch(arr, mid + 1, r, x); 
+        } 
+  
+        return -1; 
+    } 
+	
+}
