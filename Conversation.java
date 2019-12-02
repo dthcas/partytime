@@ -7,6 +7,7 @@ Variables:
 •	Person p2
 •	int length
 •	Topic [] topics
+..anything else?
 
 Methods:
 •	public Topic prompt(Person p) – asks a person to return a topic of conversation, which is returned
