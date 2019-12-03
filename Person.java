@@ -1,6 +1,7 @@
 package partytime;
 
-/* Person class - To model a person who attends a party, interacts and forms opinions about the guests */
+// Person class - To model a person who attends a party, interacts and forms opinions about the guests
+// Please check https://github.com/dthcas/partytime/blob/master/Person.md for further references
 
 import java.util.Random;
 
@@ -81,5 +82,3 @@ class Person_Util {
     } 
 	
 }
-
-// TODO stupid demonstration for Github

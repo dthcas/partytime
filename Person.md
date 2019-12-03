@@ -1,4 +1,5 @@
 # Person.java
+#### Hint: Some syntax, like the tables and the checklist, are Github-specific
 @crimsonpython24
 ### Variables:
 * `int age`
