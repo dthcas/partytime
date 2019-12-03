@@ -1,6 +1,6 @@
 /* Impression: A class which models a person's impressions of another person */
 
-public class Impression extends Code {
+public class Impression{
 	private int id;
 	private double interesting;
 	private double attractive;
