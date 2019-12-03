@@ -37,20 +37,22 @@
 #### Person_Impressions
 Variables | Methods | Accessbility | Type
 ------------ | ------------- | ------------ | -------------
-id | `get()` | private | int
-interesting | `set()` | private | double
-attractive | `set()` | private | double
-kind | `set()` | private | double
-chemistry | `set()` | private | double
+id | `get` | private | int
+interesting | `set` | private | double
+attractive | `set` | private | double
+kind | `set` | private | double
+chemistry | `set` | private | double
 
 #### Person_Topic
 Variables | Methods | Accessbility | Type
 ------------ | ------------- | ------------ | -------------
-name | `get()` | private | String
-interest | `get, set()` | private | double
-importance | `get, set()` | private | double
+name | `get` | private | String
+interest | `get, set` | private | double
+importance | `get, set` | private | double
 
 ### Utility Classes
+#### Dependencies
+1. `java.util.Random` -- generate tokens to change an impression
 #### BinarySearch
 A more effective algorithm to search through an array; remember to change the input types before running another program.
 
