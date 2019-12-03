@@ -1,18 +1,18 @@
 package partytime;
 
-/*Person class - To model a person who attends a party, interacts and forms opinions about the guests */
+/* Person class - To model a person who attends a party, interacts and forms opinions about the guests */
 
 import java.util.Random;
 
 public class Person {
 
 	private int age; private String name; private final int id;
-	private final double empathy, attractiveness, intelligence, charisma;
-	private Impression[] impressions; private Person_Topic[] topics;
+	private final double humor, empathy, attractiveness, intelligence, charisma;
+	private Person_Impression[] impressions; private Person_Topic[] topics;
 	
-	public Person(int age, String name, int id, double em, double at, double in, double ch) {
+	public Person(int age, String name, int id, double hm, double em, double at, double in, double ch) {
 		this.age = age; this.name = name; this.id = id;
-		this.empathy = em; this.attractiveness = at;
+		this.humor = hm; this.empathy = em; this.attractiveness = at;
 		this.intelligence = in; this.charisma = ch;
 	}
 	
