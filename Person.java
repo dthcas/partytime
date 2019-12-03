@@ -2,13 +2,6 @@ package partytime;
 
 /* Person class - To model a person who attends a party, interacts and forms opinions about the guests */
 
-// Person – class for a person attending the party. The person will have a number
-// of different likes, dislikes and attributes, such as listening skill, sense of humor
-// and attractiveness, which will influence how others like or dislike them. They will also
-// keep a record of the people they meet and their opinion on them. The person is able to
-// talk and listen so they can communicate their interests and feelings with others in a
-// conversation. The person’s own attributes may affect their conversation too. 
-
 import java.util.Random;
 
 public class Person {
