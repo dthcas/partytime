@@ -2,7 +2,6 @@ public class Topic {
 	private String name;
 	private double interest;
 	private double importance;
-	private String Alan;
 	public String getName()
 	{
 		return name;
@@ -22,10 +21,6 @@ public class Topic {
 	{
 		importance = i;
 	}
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-	}
 
 }
