@@ -1,4 +1,8 @@
 /* Music will define a class of song which will be played at a party */
-/* Music make you lose control */
-/* ANother message here! */
-/* just one more will be fine. Will's not' */
+
+// Music has an artist, title and running time.
+// Methods will be: 
+// 	getNextSong() which will return a new song
+//  getPlaylist(int numsongs) which will return a list of songs
+//  importMusic() which will scan an input file for songs and store them for use during operation
+
