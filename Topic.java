@@ -2,6 +2,7 @@ public class Topic {
 	private String name;
 	private double interest;
 	private double importance;
+	private String warren;
 	public String getName()
 	{
 		return name;
