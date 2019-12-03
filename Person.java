@@ -1,3 +1,5 @@
+package partytime;
+
 /*Person class - To model a person who attends a party, interacts and forms opinions about the guests */
 
 import java.util.Random;
@@ -6,7 +8,7 @@ public class Person {
 
 	private int age; private String name; private final int id;
 	private final double empathy, attractiveness, intelligence, charisma;
-	private Impression[] impressions; private Topic[] topics;
+	private Impression[] impressions; private Person_Topic[] topics;
 	
 	public Person(int age, String name, int id, double em, double at, double in, double ch) {
 		this.age = age; this.name = name; this.id = id;
@@ -21,7 +23,7 @@ public class Person {
 	
 	public double getInterestLevel(String name) {
 		int len = this.topics.length;
-		int result = Util.binarySearch(this.topics, 0, len - 1, name);
+		int result = Person_Util.binarySearch(this.topics, 0, len - 1, name);
 		return this.topics[result].getInterest();
 	}
 	
@@ -35,7 +37,7 @@ public class Person {
 
 // TODO Dummy classes for compiling
 
-class Impression {
+class Person_Impression {
 	
 	private int id; private double interesting, attractive, kind, chemistry;
 	
@@ -48,7 +50,7 @@ class Impression {
 	
 }
 
-class Topic {
+class Person_Topic {
 	
 	private String name; private double interest, importance;
 	
@@ -63,9 +65,9 @@ class Topic {
 
 // TODO Utility tools for clean workspace
 
-class Util {
+class Person_Util {
 	
-	public static int binarySearch(Topic arr[], int l, int r, String x) { 
+	public static int binarySearch(Person_Topic arr[], int l, int r, String x) { 
 		if (r >= l) { 
         	int mid = l + (r - l) / 2; 
         	if (arr[mid].getName().compareTo(x) == 0) return mid; 
