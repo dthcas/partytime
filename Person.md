@@ -36,11 +36,13 @@
   - by the same token, if someone really is negative, then they may decrease a person’s enjoyment of that topic.
 - [ ] public Topic speak()
   - return a topic to talk about in a conversation.
-- [x] *public double getHumor()*
-- [x] *public double getEmpathy()*
-- [x] *public double getAttractiveness()*
-- [x] *public double getIntelligence()*
-- [x] *public double getCharisma()*
+- [x] public double getAttribute(String arg)
+  - returns a `final` variable of a person given the argument `arg` to simplify code. Includes:
+    1. humor
+    2. empathy
+    3. attractiveness
+    4. intelligence
+    5. charisma
 - [ ] public Impression getImpression(int id, String topic)
   - takes an ID of a person and returns the impression of a specific topic
 - [ ] public void updateImpression(int id, String name, double tk)
