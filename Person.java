@@ -23,6 +23,18 @@ public class Person {
 	
 	public void setAge(int a) {this.age = a;}
 	public void setName(String n) {this.name = n;}
+
+	public double getInterestLevel(String name) {
+		int len = this.topics.length;
+		int result = Person_Util.binarySearchTopic(this.topics, 0, len - 1, name);
+		return this.topics[result].getInterest();
+	}
+	
+	public void updateInterestLevel(String name, double tk) {
+		int len = this.topics.length;
+		int result = Person_Util.binarySearchTopic(this.topics, 0, len - 1, name);
+		this.topics[result].setInterest(tk);
+	}
 	
 	public double getAttribute(String arg) {
 		if (arg.toLowerCase().equals("humor")) return this.humor;
@@ -33,17 +45,20 @@ public class Person {
 		return -1;
 	}
 	
-	public double getInterestLevel(String name) {
-		int len = this.topics.length;
-		int result = Person_Util.binarySearchTopic(this.topics, 0, len - 1, name);
-		return this.topics[result].getInterest();
-	}
-	
+	// there interest level and impressions are interlinked
+	// InterestLevel functions worked for a specific item while Impressions change a user
 	public double getImpression(int id, String topic) {
 		Party p = new Party();
 		int len = this.impressions.length;
 		int result = Person_Util.binarySearchImpression(p.guests, 0, len - 1, id);
 		return p.guests[result].getInterestLevel(topic);
+	}
+	
+	public void updateImpression(int id, String name, double tk) {
+		Party p = new Party();
+		int len = this.impressions.length;
+		int result = Person_Util.binarySearchTopic(this.topics, 0, len - 1, name);
+		p.guests[result].updateInterestLevel(name, tk);
 	}
 	
 	public static void main(String[] args) {
@@ -111,5 +126,6 @@ class Person_Util {
   
         return -1; 
     } 
+
 	
 }
