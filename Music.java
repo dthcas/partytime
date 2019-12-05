@@ -6,3 +6,9 @@
 //  getPlaylist(int numsongs) which will return a list of songs
 //  importMusic() which will scan an input file for songs and store them for use during operation
 
+public class Music {
+	
+	public Music() {
+		
+	}
+}
