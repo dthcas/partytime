@@ -6,10 +6,7 @@
 * `int age`
 * `String name`
 * `private final int id`
-* `private final double empathy`
-* `private final double attractiveness`
-* `private final double intelligence`
-* `private final double charisma`
+* `private final double empathy, attractiveness, intelligence, charisma`
 * `private Person_Impression [] impressions`
 * `Person_Topic [] topics`
 * `Party.guests: Person[] guests`
