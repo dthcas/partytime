@@ -11,6 +11,7 @@
 * `private final double charisma`
 * `private Person_Impression [] impressions`
 * `Person_Topic [] topics`
+* `Party.guests: Person[] guests`
 
 ### Methods:
 - [x] public int getAge()
@@ -31,8 +32,8 @@
 - [ ] public Topic speak()
   - return a topic to talk about in a conversation.
 - [x] public double getAttractiveness()
-- [ ] public Impression getImpression(int i)
-  - takes an ID of a person and returns the impression of that person
+- [x] public Impression getImpression(int i, String topic)
+  - takes an ID of a person and returns the impression of that person of a specific topic
 
 ### Dummy classes
 #### Person_Impressions
@@ -58,18 +59,9 @@ importance | `get, set` | private | double
 A more effective algorithm to search through an array; remember to change the input types before running another program.
 
 ```java
-public static int binarySearch(Person_Topic arr[], int l, int r, String x) { 
-    if (r >= l) { 
-        int mid = l + (r - l) / 2; 
-        if (arr[mid].getName().compareTo(x) == 0) return mid; 
-        if (arr[mid].getName().compareTo(x) > 0) {
-            return binarySearch(arr, l, mid - 1, x); 
-        }
-        return binarySearch(arr, mid + 1, r, x); 
-    }
-    
-    return -1; 
-} 
+// String x is the name of a person and int x is a person's ID
+public static int binarySearchTopic(Person_Topic arr[], int l, int r, String x)
+public static int binarySearchImpression(Person arr[], int l, int r, int x)
 ```
 ## Contact
 Please [mail me](mailto:16064@hcas.com.tw) if you have any concerns regarding any file under my name.
