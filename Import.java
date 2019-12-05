@@ -30,10 +30,13 @@ public class Import {
         int p_id,p_age;
         String p_name; 
         Double p_hm, p_em, p_at, p_in, p_ch;
+        int lineNum=1;
         
         // loop until all lines are read
         while (line != null) {
 
+        	if(lineNum++==1) continue; // Ignore the first line and increment the line number
+        	
         	// use string.split to load a string array with the values from
         	// each line of the file, using a comma as the delimiter
         	String[] values = line.split(",");
