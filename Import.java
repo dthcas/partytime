@@ -62,6 +62,8 @@ public class Import {
             line = br.readLine();
         }
         
+        br.close(); // close the file reader
+        
         int ap_size = allPeople.size();
         int p_index;
         
