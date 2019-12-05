@@ -18,9 +18,13 @@
 - [x] public void setAge(int a)
 - [x] public String getName()
 - [x] public void setName(String n)
-- [x] *public double getInterestLevel(String name)*
-- [x] *public double updateInterestLevel(String name, double tk*
-  1. this function and the function above are not merged into the getImpression and updateImpression methods (respectively) as not to overcomplicate the code
+- [x] public Person_Impression[] getImpressions()
+- [x] public Person_Topic[] getTopic()
+- [x] public double getInterestLevel(int id, String name)
+  - passes in a user's ID as an argument and returns its interest level
+  - the interest level is specific to a topic named `name`
+- [x] public double updateInterestLevel(int id, String name, double tk)
+  - same changes as above, made function specific for a topic matching `name`
 - [ ] public double listen(Person p, Topic t)
   - takes a person speaking and the topic they are speaking about
   - returns a score based on their interest and empathy settings from 0 to 2.
@@ -32,13 +36,16 @@
   - by the same token, if someone really is negative, then they may decrease a person’s enjoyment of that topic.
 - [ ] public Topic speak()
   - return a topic to talk about in a conversation.
-- [x] public double getAttractiveness()
-- [x] public Impression getImpression(int id, String topic)
+- [x] *public double getHumor()*
+- [x] *public double getEmpathy()*
+- [x] *public double getAttractiveness()*
+- [x] *public double getIntelligence()*
+- [x] *public double getCharisma()*
+- [ ] public Impression getImpression(int id, String topic)
   - takes an ID of a person and returns the impression of a specific topic
-- [x] public void updateImpression(int id, String name, double tk)
+- [ ] public void updateImpression(int id, String name, double tk)
   - takes an ID of a person and updates his or her impression of a specific topic
-  1. The original method was to return the impression one has on another person, but this feature will be added later as the impressions variable is linked to topic.
-  2. the interest level and impressions are interlinked. InterestLevel functions worked for a specific item while Impressions change a user
+#### *Note that all italicized functions are dealing with `final` variables*
 
 
 ### Dummy classes
