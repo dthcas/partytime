@@ -23,7 +23,12 @@ public class Impression {
 	public void setChemistry(double c) {
 
 		chemistry = c;
-	}	
+	}
+	
+	public double getChemistry(Person p1, Person p2) {
+		
+		return 0.0;
+	}
 	
 	public double getImpression(Person person1, Person person2) {
 		overallimpression = (interesting + attractive + kind + getChemistry(person1,person2))/4;
