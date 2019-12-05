@@ -32,6 +32,7 @@ public class Conversation {
 		topics = new Topic[5];
 	}
 	
+	// Ask the person to return a topic of conversation
 	public Topic prompt(Person p) {
 		
 		Topic t = p.speak();
