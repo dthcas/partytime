@@ -15,6 +15,10 @@ public class Person {
 		this.age = age; this.name = name; this.id = id;
 		this.humor = hm; this.empathy = em; this.attractiveness = at;
 		this.intelligence = in; this.charisma = ch;
+		if (!Person_Util.verifyAttributes(hm, em, at, in, ch)) {
+			System.out.print("Please check all final variables are between 0 and 2!");
+			System.exit(0);
+		}
 	}
 	
 	public int getAge() {return this.age;}
@@ -51,6 +55,10 @@ public class Person {
 		return -1;
 	}
 	
+	public double listen(Person p, Person_Topic t) {
+		return Math.sqrt(p.getInterestLevel(p.getId(), t.getName()) * empathy);
+	}
+	
 	public double getImpression(int id, String topic) {
 		return 0.0;
 	}
@@ -71,8 +79,6 @@ public class Person {
 class Person_Impression {
 	
 	private int id; private double interesting, attractive, kind, chemistry;
-	
-	public double getImpression() {return new Random().nextDouble();}
 	
 	public void setInteresting(double i) {this.interesting = i;}
 	public void setAttractive(double a) {this.attractive = a;}
@@ -124,5 +130,10 @@ class Person_Util {
         return -1; 
     } 
 
+	public static boolean verifyAttributes(double hm, double em, double at, double in, double ch) {
+		if (hm > 2 || em > 2 || at > 2 || in > 2 || ch > 2 ||
+				hm < 0 || em < 0 || at < 0 || in < 0 || ch < 0) return false;
+		else return true;
+	}
 	
 }
