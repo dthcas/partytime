@@ -18,8 +18,9 @@
 - [x] public void setAge(int a)
 - [x] public String getName()
 - [x] public void setName(String n)
-- [x] public double getInterestLevel(String name)
-  - takes the name of a topic and returns how interested that person is from 0 to 2
+- [x] *public double getInterestLevel(String name)*
+- [x] *public double updateInterestLevel(String name, double tk*
+  1. this function and the function above are not merged into the getImpression and updateImpression methods (respectively) as not to overcomplicate the code
 - [ ] public double listen(Person p, Topic t)
   - takes a person speaking and the topic they are speaking about
   - returns a score based on their interest and empathy settings from 0 to 2.
@@ -32,8 +33,13 @@
 - [ ] public Topic speak()
   - return a topic to talk about in a conversation.
 - [x] public double getAttractiveness()
-- [x] public Impression getImpression(int i, String topic)
-  - takes an ID of a person and returns the impression of that person of a specific topic
+- [x] public Impression getImpression(int id, String topic)
+  - takes an ID of a person and returns the impression of a specific topic
+- [x] public void updateImpression(int id, String name, double tk)
+  - takes an ID of a person and updates his or her impression of a specific topic
+  1. The original method was to return the impression one has on another person, but this feature will be added later as the impressions variable is linked to topic.
+  2. the interest level and impressions are interlinked. InterestLevel functions worked for a specific item while Impressions change a user
+
 
 ### Dummy classes
 #### Person_Impressions
