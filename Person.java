@@ -20,20 +20,26 @@ public class Person {
 	public int getAge() {return this.age;}
 	public String getName() {return this.name;}
 	public int getId() {return this.id;}
+	public Person_Impression[] getImpressions() {return this.impressions;}
+	public Person_Topic[] getTopics() {return this.topics;}
 	
 	public void setAge(int a) {this.age = a;}
 	public void setName(String n) {this.name = n;}
 
-	public double getInterestLevel(String name) {
-		int len = this.topics.length;
-		int result = Person_Util.binarySearchTopic(this.topics, 0, len - 1, name);
-		return this.topics[result].getInterest();
+	public double getInterestLevel(int id, String name) {
+		Party p = new Party();
+		int lenT = this.topics.length, lenI = this.impressions.length;
+		int resT = Person_Util.binarySearchTopic(this.topics, 0, lenT - 1, name);
+		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
+		return p.guests[resI].getTopics()[resT].getInterest();
 	}
 	
-	public void updateInterestLevel(String name, double tk) {
-		int len = this.topics.length;
-		int result = Person_Util.binarySearchTopic(this.topics, 0, len - 1, name);
-		this.topics[result].setInterest(tk);
+	public void updateInterestLevel(int id, String name, double tk) {
+		Party p = new Party();
+		int lenT = this.topics.length; int lenI = this.impressions.length;
+		int resT = Person_Util.binarySearchTopic(this.topics, 0, lenT - 1, name);
+		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
+		p.guests[resI].getTopics()[resT].setInterest(tk);
 	}
 	
 	public double getAttribute(String arg) {
@@ -45,20 +51,11 @@ public class Person {
 		return -1;
 	}
 	
-	// there interest level and impressions are interlinked
-	// InterestLevel functions worked for a specific item while Impressions change a user
 	public double getImpression(int id, String topic) {
-		Party p = new Party();
-		int len = this.impressions.length;
-		int result = Person_Util.binarySearchImpression(p.guests, 0, len - 1, id);
-		return p.guests[result].getInterestLevel(topic);
+		return 0.0;
 	}
 	
 	public void updateImpression(int id, String name, double tk) {
-		Party p = new Party();
-		int len = this.impressions.length;
-		int result = Person_Util.binarySearchTopic(this.topics, 0, len - 1, name);
-		p.guests[result].updateInterestLevel(name, tk);
 	}
 	
 	public static void main(String[] args) {
