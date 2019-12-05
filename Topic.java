@@ -2,7 +2,6 @@ public class Topic {
 	private String name;
 	private double interest;
 	private double importance;
-	private
 	public Topic()
 	{
 		
