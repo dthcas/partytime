@@ -25,8 +25,8 @@ public class Impression{
 		chemistry = c;
 	}	
 	
-	public double getImpression() {
-		overallimpression = (interesting + attractive + kind + getChemistry(id,id))/4;
+	public double getImpression(Person person1, Person person2) {
+		overallimpression = (interesting + attractive + kind + getChemistry(person1,person2))/4;
 		return overallimpression;
 	}
 	
