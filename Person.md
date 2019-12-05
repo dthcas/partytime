@@ -16,14 +16,14 @@
 - [x] public double getInterestLevel(int id, String name)
   - passes in a user's ID as an argument and returns its interest level
   - the interest level is specific to a topic named `name`
-- [x] public double updateInterestLevel(int id, String name, double tk)
+- [x] public double updateInterestLevelManual(int id, String name, double tk)
   - same changes as above, made function specific for a topic matching `name`
-- [ ] public double listen(Person p, Topic t)
+- [x] public double listen(Person p, Topic t)
   - takes a person speaking and the topic they are speaking about
   - returns a score based on their interest and empathy settings from 0 to 2.
 - [ ] private void judge(Person p, Topic t)
   - forms an internal Impression about that person from the topic they are talking about and their non-verbal attributes.
-- [ ] private void updateInterestLevel(String name, double factor)
+- [ ] private void updateInterestLevel(String name, double tk)
   - if someone is very interesting or compelling, then it's possible that a person may update their own interest
   - a factor from 0.7 to 1.3 (+/- 30%).
   - by the same token, if someone really is negative, then they may decrease a person’s enjoyment of that topic.
