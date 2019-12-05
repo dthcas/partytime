@@ -15,7 +15,7 @@
 * `Party.guests: Person[] guests`
 
 ### Methods:
-- [x] Basic `get` and `set` methods ![imgur](https://i.imgur.com/Pdg3We6.png)
+- [x] Basic `get` and `set` methods ![imgur](https://i.imgur.com/3xFwsqo.png)
 - [x] public double getInterestLevel(int id, String name)
   - passes in a user's ID as an argument and returns its interest level
   - the interest level is specific to a topic named `name`
@@ -34,7 +34,7 @@
   - return a topic to talk about in a conversation.
 - [x] public double getAttribute(String arg)
   - returns a `final` variable of a person given the argument `arg` to simplify code. Includes:
-    ![Imgur](https://i.imgur.com/jx26xYV.png)
+    ![Imgur](https://i.imgur.com/VNn2cub.png)
 - [ ] public Impression getImpression(int id, String topic)
   - takes an ID of a person and returns the impression of a specific topic
 - [ ] public void updateImpression(int id, String name, double tk)
