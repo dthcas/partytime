@@ -37,8 +37,8 @@ public class Person {
 		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
 		return p.guests[resI].getTopics()[resT].getInterest();
 	}
-	
-	public void updateInterestLevel(int id, String name, double tk) {
+
+	public void updateInterestLevelManual(int id, String name, double tk) {
 		Party p = new Party();
 		int lenT = this.topics.length; int lenI = this.impressions.length;
 		int resT = Person_Util.binarySearchTopic(this.topics, 0, lenT - 1, name);
@@ -57,6 +57,13 @@ public class Person {
 	
 	public double listen(Person p, Person_Topic t) {
 		return Math.sqrt(p.getInterestLevel(p.getId(), t.getName()) * empathy);
+	}
+	
+	public void updateInterestLevel(String name, double tk, boolean upOrDown) {
+		int lenT = this.topics.length; Person_Util.verifyPercentage(tk);
+		int resT = Person_Util.binarySearchTopic(this.topics, 0, lenT - 1, name);
+		if (upOrDown) {this.getTopics()[resT].setInterestRatio(1 + tk);}
+		else {this.getTopics()[resT].setInterestRatio(1 - tk);}
 	}
 	
 	public double getImpression(int id, String topic) {
@@ -96,6 +103,7 @@ class Person_Topic {
 	public double getImportance() {return this.importance;}
 	
 	public void setInterest(double i) {this.interest = i;}
+	public void setInterestRatio(double tk) {this.interest *= tk;}
 	public void setImportance(double i) {this.importance = i;}
 	
 }
@@ -134,6 +142,15 @@ class Person_Util {
 		if (hm > 2 || em > 2 || at > 2 || in > 2 || ch > 2 ||
 				hm < 0 || em < 0 || at < 0 || in < 0 || ch < 0) return false;
 		else return true;
+	}
+	
+	public static boolean verifyPercentage(double pt) {
+		if (0 <= pt && pt <= 1) return true;
+		else {
+			System.out.println("Please check your range again! 0 <= x <= 1");
+			System.exit(0);
+			return false;
+		}
 	}
 	
 }
