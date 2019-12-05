@@ -61,11 +61,13 @@ importance | `get, set` | private | double
 1. `java.util.Random` -- generate tokens to change an impression
 #### BinarySearch
 A more effective algorithm to search through an array; remember to change the input types before running another program.
-
 ```java
 // String x is the name of a person and int x is a person's ID
 public static int binarySearchTopic(Person_Topic arr[], int l, int r, String x)
 public static int binarySearchImpression(Person arr[], int l, int r, int x)
+
+public static boolean verifyAttributes(double hm, double em, double at, double in, double ch)
+public static boolean verifyPercentage(double pt)
 ```
 ## Contact
 Please [mail me](mailto:16064@hcas.com.tw) if you have any concerns regarding any file under my name.
