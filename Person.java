@@ -1,4 +1,4 @@
-package partytime;
+//package partytime;
 
 // Person class - To model a person who attends a party, interacts and forms opinions about the guests
 // Please check https://github.com/dthcas/partytime/blob/master/Person.md for further references
@@ -53,6 +53,12 @@ public class Person {
 		if (arg.toLowerCase().equals("intelligence")) return this.intelligence;
 		if (arg.toLowerCase().equals("charisma")) return this.charisma;
 		return -1;
+	}
+	
+	// When a person is asked to speak, this method finds something for them to say
+	public Person_Topic speak() {
+		int rt = (int) Math.random()*(topics.length-1);
+		return topics[rt];
 	}
 	
 	public double listen(Person p, Person_Topic t) {
