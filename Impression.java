@@ -1,3 +1,5 @@
+package partytime;
+
 /* Impression: A class which models a person's impressions of another person */
 
 public class Impression {

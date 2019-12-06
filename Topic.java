@@ -1,3 +1,5 @@
+package partytime;
+
 public class Topic {
 	private String name;
 	private double interest;
@@ -22,5 +24,8 @@ public class Topic {
 	{
 		importance = i;
 	}
+	
+	// Dependency for Person.java
+	public void setInterestRatio(double tk) {this.interest *= tk;}
 
 }

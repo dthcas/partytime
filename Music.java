@@ -1,3 +1,5 @@
+package partytime;
+
 /* Music will define a class of song which will be played at a party */
 
 // Music has an artist, title and running time.

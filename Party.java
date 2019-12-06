@@ -1,3 +1,5 @@
+package partytime;
+
 public class Party {
 	double start_time;
 	double datetime;
@@ -16,7 +18,7 @@ public class Party {
 	}
 	
 	private boolean changeMusic() {
-		
+		return false;
 	}
 	
 	public int getGuests() {
@@ -25,7 +27,7 @@ public class Party {
 	}
 	
 	public boolean addGuest(Person p) {
-		
+		return false;
 	}
 	
 	public static void main(String[] args) { 

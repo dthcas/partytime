@@ -1,4 +1,4 @@
-//package partytime;
+package partytime;
 
 // Person class - To model a person who attends a party, interacts and forms opinions about the guests
 // Please check https://github.com/dthcas/partytime/blob/master/Person.md for further references
@@ -9,7 +9,7 @@ public class Person {
 
 	private int age; private String name; private final int id;
 	private final double humor, empathy, attractiveness, intelligence, charisma;
-	private Person_Impression[] impressions; private Person_Topic[] topics;
+	private Impression[] impressions; private Topic[] topics;
 	
 	public Person(int age, String name, int id, double hm, double em, double at, double in, double ch) {
 		this.age = age; this.name = name; this.id = id;
@@ -24,8 +24,8 @@ public class Person {
 	public int getAge() {return this.age;}
 	public String getName() {return this.name;}
 	public int getId() {return this.id;}
-	public Person_Impression[] getImpressions() {return this.impressions;}
-	public Person_Topic[] getTopics() {return this.topics;}
+	public Impression[] getImpressions() {return this.impressions;}
+	public Topic[] getTopics() {return this.topics;}
 	
 	public void setAge(int a) {this.age = a;}
 	public void setName(String n) {this.name = n;}
@@ -56,7 +56,7 @@ public class Person {
 	}
 	
 	// When a person is asked to speak, this method finds something for them to say
-	public Person_Topic speak() {
+	public Topic speak() {
 		return topics[(int) Math.random()*(topics.length-1)];
 	}
 	
@@ -117,7 +117,7 @@ class Person_Topic {
 
 class Person_Util {
 	
-	public static int binarySearchTopic(Person_Topic arr[], int l, int r, String x) { 
+	public static int binarySearchTopic(Topic arr[], int l, int r, String x) { 
 		if (r >= l) { 
 			int mid = l + (r - l) / 2; 
 			if (arr[mid].getName().compareTo(x) == 0) return mid; 

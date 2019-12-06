@@ -1,3 +1,5 @@
+package partytime;
+
 /* Conversation
 
 Variables:
