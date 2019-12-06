@@ -15,58 +15,56 @@ public class Import {
 		// find the path to the file
 		Reader fr = new FileReader("people.csv"); 
 		// create an instance of BufferedReader
-        BufferedReader br = new BufferedReader(fr);
-        
-        // create a new list of people for returning to user
-        Person [] pList = new Person[num];
-        // make an arraylist to hold all people from the file.  This way we can 
-        // choose random people from the list instead of the same first few.
-        ArrayList<Person> allPeople = new ArrayList<>();
-        String name; int age;
-        // read the first line from the text file
-        String line = br.readLine();
-        
-        // temp person information variables
-        int p_id,p_age;
-        String p_name; 
-        Double p_hm, p_em, p_at, p_in, p_ch;
-        int lineNum=1;
-        
-        // loop until all lines are read
-        while (line != null) {
+		BufferedReader br = new BufferedReader(fr);
 
-        	if(lineNum++==1) continue; // Ignore the first line and increment the line number
-        	
-        	// use string.split to load a string array with the values from
-        	// each line of the file, using a comma as the delimiter
-        	String[] values = line.split(",");
-        	if(values.length<8) {
-        		System.out.print("Please check input file "+fileName);
-        		return pList;
-        	}
-        	p_id = Integer.parseInt(values[0]);
-        	p_name = values[1];
-        	p_age = Integer.parseInt(values[2]);
-        	p_hm = Double.parseDouble(values[3]);
-        	p_em = Double.parseDouble(values[4]);
-        	p_at = Double.parseDouble(values[5]);
-        	p_in = Double.parseDouble(values[6]);
-        	p_ch = Double.parseDouble(values[7]);
-        	Person p = new Person(p_age,p_name,p_id,p_hm,p_em,p_at,p_in,p_ch);
+		// create a new list of people for returning to user
+		Person [] pList = new Person[num];
+		// make an arraylist to hold all people from the file.  This way we can 
+		// choose random people from the list instead of the same first few.
+		ArrayList<Person> allPeople = new ArrayList<>();
+		String name; int age;
+		// read the first line from the text file
+		String line = br.readLine();
 
-        	// adding this new person into ArrayList of all people
-        	allPeople.add(p);
+		// temp person information variables
+		int p_id,p_age;
+		Double p_hm, p_em, p_at, p_in, p_ch;
+		int lineNum=1;
 
-            // read next line before looping
-            // if end of file reached, line would be null
-            line = br.readLine();
-        }
+		// loop until all lines are read
+		while (line != null) {
+
+			if(lineNum++==1) continue; // Ignore the first line and increment the line number
+
+			// use string.split to load a string array with the values from
+			// each line of the file, using a comma as the delimiter
+			String[] values = line.split(",");
+			if(values.length!=8) {
+				System.out.print("Please check input file "+fileName);
+				return pList;
+			}
+			p_id = Integer.parseInt(values[0]);
+			p_age = Integer.parseInt(values[2]);
+			p_hm = Double.parseDouble(values[3]);
+			p_em = Double.parseDouble(values[4]);
+			p_at = Double.parseDouble(values[5]);
+			p_in = Double.parseDouble(values[6]);
+			p_ch = Double.parseDouble(values[7]);
+
+			// adding this new person into ArrayList of all people
+			allPeople.add(new Person(p_age,values[1],p_id,p_hm,p_em,p_at,p_in,p_ch));
+
+			// read next line before looping
+			// if end of file reached, line would be null
+			line = br.readLine();
+		}
+
+		br.close(); // close the file reader
+
+		int ap_size = allPeople.size();
+		int p_index;
         
-        br.close(); // close the file reader
-        
-        int ap_size = allPeople.size();
-        int p_index;
-        
+		// (may you please comment what do you want to do in this file -warren)
 		for(int i=0; i<num; i++) {
 			p_index = (int) (Math.random()*(ap_size-1));
 			pList[i] = allPeople.get(p_index);
