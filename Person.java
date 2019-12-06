@@ -57,12 +57,11 @@ public class Person {
 	
 	// When a person is asked to speak, this method finds something for them to say
 	public Person_Topic speak() {
-		int rt = (int) Math.random()*(topics.length-1);
-		return topics[rt];
+		return topics[(int) Math.random()*(topics.length-1)];
 	}
 	
 	public double listen(Person p, Person_Topic t) {
-		return Math.sqrt(p.getInterestLevel(p.getId(), t.getName()) * empathy);
+		return Math.sqrt(p.getInterestLevel(p.getId(), t.getName()) * ((attractiveness+intelligence+charisma)/3));
 	}
 	
 	public void updateInterestLevel(String name, double tk, boolean upOrDown) {
@@ -120,29 +119,29 @@ class Person_Util {
 	
 	public static int binarySearchTopic(Person_Topic arr[], int l, int r, String x) { 
 		if (r >= l) { 
-        	int mid = l + (r - l) / 2; 
-        	if (arr[mid].getName().compareTo(x) == 0) return mid; 
+			int mid = l + (r - l) / 2; 
+			if (arr[mid].getName().compareTo(x) == 0) return mid; 
 			if (arr[mid].getName().compareTo(x) > 0) {
 				return binarySearchTopic(arr, l, mid - 1, x); 
 			}
-            return binarySearchTopic(arr, mid + 1, r, x); 
-        } 
-  
-        return -1; 
-    } 
+            		return binarySearchTopic(arr, mid + 1, r, x); 
+        	} 
+		
+        	return -1; 
+    	} 
 	
 	public static int binarySearchImpression(Person arr[], int l, int r, int x) { 
 		if (r >= l) { 
-        	int mid = l + (r - l) / 2; 
-        	if (arr[mid].getId() == x) return mid; 
+			int mid = l + (r - l) / 2; 
+			if (arr[mid].getId() == x) return mid; 
 			if (arr[mid].getId() > x) {
 				return binarySearchImpression(arr, l, mid - 1, x); 
 			}
-            return binarySearchImpression(arr, mid + 1, r, x); 
-        } 
+			return binarySearchImpression(arr, mid + 1, r, x); 
+        	} 
   
-        return -1; 
-    } 
+		return -1; 
+	} 
 
 	public static boolean verifyAttributes(double hm, double em, double at, double in, double ch) {
 		if (hm > 2 || em > 2 || at > 2 || in > 2 || ch > 2 ||
