@@ -55,12 +55,16 @@ public class Person {
 		return -1;
 	}
 	
-	public Topic speak() {
-		return topics[(int) Math.random()*(topics.length-1)];
-	}
-	
 	public double listen(Person p, Person_Topic t) {
 		return Math.sqrt(p.getInterestLevel(p.getId(), t.getName()) * ((attractiveness+intelligence+charisma)/3));
+	}
+	
+	private void judge(Person p, Topic t) {
+		
+	}
+	
+	public Topic speak() {
+		return topics[(int) Math.random()*(topics.length-1)];
 	}
 	
 	public void updateInterestLevel(String name, double tk, boolean upOrDown) {
