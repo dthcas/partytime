@@ -23,9 +23,9 @@
   - returns a score based on their interest and empathy settings from 0 to 2.
 - [ ] private void judge(Person p, Topic t)
   - forms an internal Impression about that person from the topic they are talking about and their non-verbal attributes.
-- [ ] private void updateInterestLevel(String name, double tk)
+- [ ] private void updateInterestLevel(String name, double tk, boolean upOrDown)
   - if someone is very interesting or compelling, then it's possible that a person may update their own interest
-  - a factor from 0.7 to 1.3 (+/- 30%).
+  - a factor from 0.7 to 1.3 (+/- 30%). the boolean upOrDown determines to increase or decrease the factor
   - by the same token, if someone really is negative, then they may decrease a person’s enjoyment of that topic.
 - [ ] public Topic speak()
   - return a topic to talk about in a conversation.
