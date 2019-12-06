@@ -1,12 +1,13 @@
+package partytime;
 /* Import.java will allow a class to import various data from CSV files to allow for people, conversations and topics */
 
 import java.io.*;
 import java.util.ArrayList;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+//import java.nio.charset.StandardCharsets;
+//import java.nio.file.Files;
+//import java.nio.file.Path;
+//import java.nio.file.Paths;
 
 public class Import {
 	
