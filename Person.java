@@ -55,7 +55,6 @@ public class Person {
 		return -1;
 	}
 	
-	// When a person is asked to speak, this method finds something for them to say
 	public Topic speak() {
 		return topics[(int) Math.random()*(topics.length-1)];
 	}
@@ -71,11 +70,11 @@ public class Person {
 		else {this.getTopics()[resT].setInterestRatio(1 - tk);}
 	}
 	
-	public double getImpression(int id, String topic) {
-		return 0.0;
-	}
-	
-	public void updateImpression(int id, String name, double tk) {
+	public double getImpression(int id) {
+		Party p = new Party(); Impression i = new Impression();
+		int lenI = this.impressions.length;
+		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
+		return i.getImpression(this, p.guests[resI]);
 	}
 	
 	public static void main(String[] args) {
