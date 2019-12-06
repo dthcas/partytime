@@ -23,19 +23,17 @@
   - returns a score based on their interest and empathy settings from 0 to 2.
 - [ ] private void judge(Person p, Topic t)
   - forms an internal Impression about that person from the topic they are talking about and their non-verbal attributes.
-- [ ] private void updateInterestLevel(String name, double tk, boolean upOrDown)
+- [x] private void updateInterestLevel(String name, double tk, boolean upOrDown)
   - if someone is very interesting or compelling, then it's possible that a person may update their own interest
   - a factor from 0.7 to 1.3 (+/- 30%). the boolean upOrDown determines to increase or decrease the factor
   - by the same token, if someone really is negative, then they may decrease a person’s enjoyment of that topic.
-- [ ] public Topic speak()
+- [x] public Topic speak()
   - return a topic to talk about in a conversation.
 - [x] public double getAttribute(String arg)
   - returns a `final` variable of a person given the argument `arg` to simplify code. Includes:
     ![Imgur](https://i.imgur.com/VNn2cub.png)
-- [ ] public Impression getImpression(int id, String topic)
-  - takes an ID of a person and returns the impression of a specific topic
-- [ ] public void updateImpression(int id, String name, double tk)
-  - takes an ID of a person and updates his or her impression of a specific topic
+- [x] public Impression getImpression(int id)
+  - takes an ID of a person and returns the impression between this user and the given user with ID `id`
 #### *Note that all italicized functions are dealing with `final` variables*
 
 
