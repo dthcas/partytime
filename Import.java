@@ -12,17 +12,14 @@ public class Import {
 	
 	public static Person[] getPeopleFromCSV(int num, String fileName) throws IOException {
 		
-		// find the path to the file
-		Reader fr = new FileReader("people.csv"); 
-		// create an instance of BufferedReader
-		BufferedReader br = new BufferedReader(fr);
+		// find the path to the file and create an instance of BufferedReader
+		BufferedReader br = new BufferedReader(new FileReader("people.csv"));
 
 		// create a new list of people for returning to user
 		Person [] pList = new Person[num];
 		// make an arraylist to hold all people from the file.  This way we can 
 		// choose random people from the list instead of the same first few.
 		ArrayList<Person> allPeople = new ArrayList<>();
-		String name; int age;
 		// read the first line from the text file
 		String line = br.readLine();
 
@@ -64,7 +61,6 @@ public class Import {
 		int ap_size = allPeople.size();
 		int p_index;
         
-		// (may you please comment what do you want to do in this file -warren)
 		for(int i=0; i<num; i++) {
 			p_index = (int) (Math.random()*(ap_size-1));
 			pList[i] = allPeople.get(p_index);
@@ -74,7 +70,5 @@ public class Import {
 		
 		return pList;
 	}
-	
-	
 	
 }
