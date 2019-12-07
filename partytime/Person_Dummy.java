@@ -221,44 +221,65 @@ class Person_Topic {
 
 class Person_Util {
 	
+	// search for the FIRST topic with the name x
 	public static int binarySearchTopic(Topic arr[], int l, int r, String x) { 
 		if (r >= l) { 
+			// find the middle index
 			int mid = l + (r - l) / 2; 
+			// return the index if it fits the requirement
 			if (arr[mid].getName().compareTo(x) == 0) {
 				return mid;
 			}
+			// delete the half partition where the number won't be at
+			// found through checking the value
 			if (arr[mid].getName().compareTo(x) > 0) {
 				return binarySearchTopic(arr, l, mid - 1, x); 
 			}
-            return binarySearchTopic(arr, mid + 1, r, x); 
-        } 
-        return -1; 
-    } 
+			// otherwise, return the other half
+            		return binarySearchTopic(arr, mid + 1, r, x); 
+        	} 
+		
+        	return -1; 
+    	} 
 	
+	// search for a person with id x
 	public static int binarySearchImpression(Person arr[], int l, int r, int x) { 
 		if (r >= l) { 
+			// find the middle index
 			int mid = l + (r - l) / 2; 
-			if (arr[mid].getId() == x) return mid; 
+			// return the index if it fits the requirement
+			if (arr[mid].getId() == x) {
+				return mid;
+			} 
+			// delete the half partition where the number won't be at
+			// found through checking the value
 			if (arr[mid].getId() > x) {
 				return binarySearchImpression(arr, l, mid - 1, x); 
 			}
+			// otherwise, return the other half
 			return binarySearchImpression(arr, mid + 1, r, x); 
-        }
+        	}
+		
 		return -1; 
 	} 
 
+	// verify that if the attribute is in the right range between 0 and 2
 	public static boolean verifyAttributes(double hm, double em, double at, double in, double ch) {
+		// check whether any variable exceeds this border
 		if (hm > 2 || em > 2 || at > 2 || in > 2 || ch > 2 || hm < 0 || em < 0 || at < 0 || in < 0 || ch < 0) {
 			return false;
 		} else {
+			// otherwise return true
 			return true;
 		}
 	}
 	
+	// verify that the percentage given is between 0 and 1
 	public static boolean verifyPercentage(double pt) {
 		if (0 <= pt && pt <= 1) {
 			return true;
 		} else {
+			// print message and exit to prevent bugs if false
 			System.out.println("Please check your range again! 0 <= x <= 1");
 			System.exit(0);
 			return false;
