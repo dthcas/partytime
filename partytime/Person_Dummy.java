@@ -16,6 +16,7 @@ public class Person {
 	private Impression[] impressions;
 	private Topic[] topics;
 
+	// constructor method
 	public Person(int age, String name, int id, double hm, double em, double at, double in, double ch) {
 		this.age = age;
 		this.name = name;
@@ -31,6 +32,7 @@ public class Person {
 		}
 	}
 
+	// retriever methods
 	public int getAge() {
 		return this.age;
 	}
@@ -51,6 +53,7 @@ public class Person {
 		return this.topics;
 	}
 
+	// updater methods
 	public void setAge(int a) {
 		this.age = a;
 	}
@@ -59,26 +62,35 @@ public class Person {
 		this.name = n;
 	}
 
+	// returns the interest level of a specific topic
 	public double getInterestLevel(int id, String name) {
+		// create a new party object and lengths
 		Party p = new Party();
 		int lenT = this.topics.length
 		int lenI = this.impressions.length;
+		// loop through the users and the user's topics
 		int resT = Person_Util.binarySearchTopic(this.topics, 0, lenT - 1, name);
 		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
+		// get the topics and then return it
 		Topic guest_topic = p.guests[resI].getTopics()[resT];
 		guest_topic.getInterest();
 	}
 
 	public void updateInterestLevelManual(int id, String name, double tk) {
+		// create a new party object and lengths
 		Party p = new Party();
 		int lenT = this.topics.length;
 		int lenI = this.impressions.length;
+		// loop through the users and the user's topics
 		int resT = Person_Util.binarySearchTopic(this.topics, 0, lenT - 1, name);
 		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
+		// get the topics and then change it
 		Topic guest_topic = p.guests[resI].getTopics()[resT];
 		guest_topic.setInterest(tk);
 	}
 
+	// a combined function of attributes
+	// all attributes are final variables; reads an argument
 	public double getAttribute(String arg) {
 		if (arg.toLowerCase().equals("humor")) {
 			return this.humor;
@@ -98,7 +110,9 @@ public class Person {
 		return -1;
 	}
 
+	// listen to a conversation; returns interest level (double)
 	public double listen(Person p, Person_Topic t) {
+		// determine the factor through self's attrs
 		double factor = (attractiveness + intelligence + charisma)/3);
 		return Math.sqrt(p.getInterestLevel(p.getId(), t.getName()) * factor);
 	}
@@ -107,15 +121,20 @@ public class Person {
 		// TODO finish this sometime :/
 	}
 
+	// choose a random topic to start another conversation
 	public Topic speak() {
 		return topics[(int) Math.random() * (topics.length-1)];
 	}
 
+	// update the interest level of a topic; automated
+	// differenciates the manual method from that the user is already given here
 	public void updateInterestLevel(String name, double tk, boolean upOrDown) {
+		// extract variables
 		int lenT = this.topics.length;
 		Person_Util.verifyPercentage(tk);
 		int resT = Person_Util.binarySearchTopic(this.topics, 0, lenT - 1, name);
 		Topic current_topic = this.getTopics()[resT];
+		// increase or decrease the ratio
 		if (upOrDown) {
 			current_topic.setInterestRatio(1 + tk);
 		} else {
@@ -123,11 +142,14 @@ public class Person {
 		}
 	}
 
+	// get the impression of a person
 	public double getImpression(int id) {
+		// create a new party and impression object and lengths
 		Party p = new Party();
 		Impression i = new Impression();
 		int lenI = this.impressions.length;
 		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
+		// return after finalized variables
 		return i.getImpression(this, p.guests[resI]);
 	}
 
@@ -140,6 +162,7 @@ public class Person {
 
 
 // TODO Dummy classes for compiling
+// not elaborating on the comments here
 
 class Person_Impression {
 
