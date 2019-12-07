@@ -1,7 +1,12 @@
 # Person.java
+
 ![imgur](https://i.imgur.com/wpcmfKB.png)
 #### Hint: Some syntax, like the tables and the checklist, are Github-specific
 @crimsonpython24
+
+## Debug to-do
+***fix unsorted `array` bug in binary search methods***
+
 ### Variables:
 * `int age`
 * `String name`
