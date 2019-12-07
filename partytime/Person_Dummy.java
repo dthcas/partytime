@@ -65,7 +65,8 @@ public class Person {
 		int lenI = this.impressions.length;
 		int resT = Person_Util.binarySearchTopic(this.topics, 0, lenT - 1, name);
 		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
-		return p.guests[resI].getTopics()[resT].getInterest();
+		Topic guest_topic = p.guests[resI].getTopics()[resT];
+		guest_topic.getInterest();
 	}
 
 	public void updateInterestLevelManual(int id, String name, double tk) {
@@ -74,7 +75,8 @@ public class Person {
 		int lenI = this.impressions.length;
 		int resT = Person_Util.binarySearchTopic(this.topics, 0, lenT - 1, name);
 		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
-		p.guests[resI].getTopics()[resT].setInterest(tk);
+		Topic guest_topic = p.guests[resI].getTopics()[resT];
+		guest_topic.setInterest(tk);
 	}
 
 	public double getAttribute(String arg) {
@@ -97,7 +99,8 @@ public class Person {
 	}
 
 	public double listen(Person p, Person_Topic t) {
-		return Math.sqrt(p.getInterestLevel(p.getId(), t.getName()) * ((attractiveness+intelligence+charisma)/3));
+		double factor = (attractiveness + intelligence + charisma)/3);
+		return Math.sqrt(p.getInterestLevel(p.getId(), t.getName()) * factor);
 	}
 
 	private void judge(Person p, Topic t) {
@@ -105,18 +108,18 @@ public class Person {
 	}
 
 	public Topic speak() {
-		return topics[(int) Math.random()*(topics.length-1)];
+		return topics[(int) Math.random() * (topics.length-1)];
 	}
 
 	public void updateInterestLevel(String name, double tk, boolean upOrDown) {
 		int lenT = this.topics.length;
 		Person_Util.verifyPercentage(tk);
 		int resT = Person_Util.binarySearchTopic(this.topics, 0, lenT - 1, name);
+		Topic current_topic = this.getTopics()[resT];
 		if (upOrDown) {
-			this.getTopics()[resT].setInterestRatio(1 + tk);
-		}
-		else {
-			this.getTopics()[resT].setInterestRatio(1 - tk);
+			current_topic.setInterestRatio(1 + tk);
+		} else {
+			current_topic.setInterestRatio(1 - tk);
 		}
 	}
 
@@ -199,8 +202,8 @@ class Person_Util {
 		if (r >= l) { 
 			int mid = l + (r - l) / 2; 
 			if (arr[mid].getName().compareTo(x) == 0) {
-                return mid;
-            }
+				return mid;
+			}
 			if (arr[mid].getName().compareTo(x) > 0) {
 				return binarySearchTopic(arr, l, mid - 1, x); 
 			}
