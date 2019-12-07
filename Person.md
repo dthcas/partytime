@@ -1,4 +1,4 @@
-# Person.java
+# Person.md
 
 ![imgur](https://i.imgur.com/wpcmfKB.png)
 #### Hint: Some syntax, like the tables and the checklist, are Github-specific
