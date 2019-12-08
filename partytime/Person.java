@@ -1,4 +1,4 @@
-package partytime;
+// package partytime;
 
 // Person class - To model a person who attends a party, interacts and forms opinions about the guests
 // Please check https://github.com/dthcas/partytime/blob/master/Person.md for further references
@@ -33,7 +33,7 @@ public class Person {
 	public double getInterestLevel(int id, String name) {
 		Party p = new Party();
 		int lenT = this.topics.length, lenI = this.impressions.length;
-		int resT = Person_Util.binarySearchTopic(this.topics, 0, lenT - 1, name);
+		int resT = Person_Util.linearSearchTopic(this.topics, name);
 		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
 		return p.guests[resI].getTopics()[resT].getInterest();
 	}
@@ -41,7 +41,7 @@ public class Person {
 	public void updateInterestLevelManual(int id, String name, double tk) {
 		Party p = new Party();
 		int lenT = this.topics.length; int lenI = this.impressions.length;
-		int resT = Person_Util.binarySearchTopic(this.topics, 0, lenT - 1, name);
+		int resT = Person_Util.linearSearchTopic(this.topics, name);
 		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
 		p.guests[resI].getTopics()[resT].setInterest(tk);
 	}
@@ -69,7 +69,7 @@ public class Person {
 	
 	public void updateInterestLevel(String name, double tk, boolean upOrDown) {
 		int lenT = this.topics.length; Person_Util.verifyPercentage(tk);
-		int resT = Person_Util.binarySearchTopic(this.topics, 0, lenT - 1, name);
+		int resT = Person_Util.linearSearchTopic(this.topics, name);
 		if (upOrDown) {this.getTopics()[resT].setInterestRatio(1 + tk);}
 		else {this.getTopics()[resT].setInterestRatio(1 - tk);}
 	}
@@ -132,7 +132,7 @@ class Person_Util {
 		return i+1; 
 	} 
 	
-	public static int binarySearchTopic(Topic arr[], int l, int r, String x) { 
+	public static int binarySearchImpression(Topic arr[], int l, int r, int x) { 
 		if (r >= l) { 
 			int mid = l + (r - l) / 2; 
 			if (arr[mid].getName().compareTo(x) == 0) return mid; 
@@ -145,25 +145,18 @@ class Person_Util {
 		return -1; 
 	}
 	
-    public static void quickSortPerson(Person arr[], int low, int high) {
-		int[] temp = new int[arr.length];
-		for (int i=0; i<arr.length-1; i++) {temp[i] = arr[i].getId();}
-        if (low < high) { 
-            int pi = partition(temp, low, high);
-			quickSortPerson(temp, low, pi-1); quickSortPerson(temp, pi+1, high); 
-        } 
-    } 
-	
-	public static int binarySearchImpression(Person arr[], int l, int r, int x) { 
-		if (r >= l) { 
-			int mid = l + (r - l) / 2; 
-			if (arr[mid].getId() == x) return mid; 
-			if (arr[mid].getId() > x) {
-				return binarySearchImpression(arr, l, mid - 1, x); 
-			}
-		return binarySearchImpression(arr, mid + 1, r, x); 
+	public static void quickSortImpression(Person arr[], int low, int high) {
+		int[] tmp = new int[arr.length];
+		for (int i=0; i<tmp.length-1; i++) {tmp[i] = arr[i].getId();}
+		if (low < high) { 
+		    int pi = partition(tmp, low, high);
+			quickSortImpression(arr, low, pi-1); quickSortImpression(arr, pi+1, high); 
 		} 
-
+	} 
+	
+	public static int linearSearchTopic(int arr[], String name) { 
+		int n = arr.length; 
+		for(int i = 0; i < n; i++) {if (arr[i] == name) return i;} 
 		return -1; 
 	} 
 
