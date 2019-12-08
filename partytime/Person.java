@@ -126,13 +126,14 @@ class Person_Util {
 			if (arr[j] < pivot) { 
 				i++; int temp = arr[i]; arr[i] = arr[j]; arr[j] = temp; 
 			} 
-		} 
+		} 							
 
 		int temp = arr[i+1]; arr[i+1] = arr[high]; arr[high] = temp; 
 		return i+1; 
 	} 
 	
-	public static int binarySearchImpression(Topic arr[], int l, int r, int x) { 
+	public static int binarySearchImpression(Topic arr[], int l, int r, int x) {
+		quickSortImpression(arr);
 		if (r >= l) { 
 			int mid = l + (r - l) / 2; 
 			if (arr[mid].getName().compareTo(x) == 0) return mid; 
