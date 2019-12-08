@@ -120,6 +120,18 @@ class Person_Topic {
 
 class Person_Util {
 	
+	public static int partition(int arr[], int low, int high) { 
+		int pivot = arr[high]; int i = (low-1); 
+		for (int j=low; j<high; j++) { 
+			if (arr[j] < pivot) { 
+				i++; int temp = arr[i]; arr[i] = arr[j]; arr[j] = temp; 
+			} 
+		} 
+
+		int temp = arr[i+1]; arr[i+1] = arr[high]; arr[high] = temp; 
+		return i+1; 
+	} 
+	
 	public static int binarySearchTopic(Topic arr[], int l, int r, String x) { 
 		if (r >= l) { 
 			int mid = l + (r - l) / 2; 
@@ -127,11 +139,20 @@ class Person_Util {
 			if (arr[mid].getName().compareTo(x) > 0) {
 				return binarySearchTopic(arr, l, mid - 1, x); 
 			}
-            		return binarySearchTopic(arr, mid + 1, r, x); 
-        	} 
-		
-        	return -1; 
-    	} 
+			return binarySearchTopic(arr, mid + 1, r, x); 
+		} 
+
+		return -1; 
+	}
+	
+    public static void quickSortPerson(Person arr[], int low, int high) {
+		int[] temp = new int[arr.length];
+		for (int i=0; i<arr.length-1; i++) {temp[i] = arr[i].getId();}
+        if (low < high) { 
+            int pi = partition(temp, low, high);
+			quickSortPerson(temp, low, pi-1); quickSortPerson(temp, pi+1, high); 
+        } 
+    } 
 	
 	public static int binarySearchImpression(Person arr[], int l, int r, int x) { 
 		if (r >= l) { 
@@ -140,9 +161,9 @@ class Person_Util {
 			if (arr[mid].getId() > x) {
 				return binarySearchImpression(arr, l, mid - 1, x); 
 			}
-			return binarySearchImpression(arr, mid + 1, r, x); 
-        	} 
-  
+		return binarySearchImpression(arr, mid + 1, r, x); 
+		} 
+
 		return -1; 
 	} 
 
