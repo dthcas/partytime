@@ -24,12 +24,15 @@ public class Conversation {
 	int length;
 	Topic [] topics;
 	
-	public Conversation(Person a, Person b,int dd,int l) {
+	public Conversation(Person a, Person b,int idd) {
 		p1 = a;
 		p2 = b;
-		ID=dd;
-		length = l;
+		ID=idd;
+
 		topics = new Topic[5];
+	}
+	public int getID() {
+		return ID;
 	}
 	
 	public Topic prompt(Person p) {
@@ -37,18 +40,18 @@ public class Conversation {
 		Topic t = p.speak();
 		return(t);
 	}
-	private static String decides(Person pp1,Person pp2) {
+	private static String begindecides(Person pp1,Person pp2) {
 		String impression;
-		if(pp1.getInterestLevel(prompt(pp2).getName())>1.8) {
+		if(pp1.getAttractiveness()>1.8) {
 			impressions=pp1.getName+" fell in love with "+pp2.getName;
 		}
-		else if(pp1.getInterestLevel(prompt(pp2).getName())>1.4) {
+		else if(pp1.getAttractiveness()>1.4) {
 			impressions=pp1.getName+" finds"+pp2.getName+"quite attractive";
 		}
-		else if(pp1.getInterestLevel(prompt(pp2).getName())>1.0) {
+		else if(pp1.getAttractiveness()>1.0) {
 			impressions=pp1.getName+"has a no feeling about"+pp2.getName;
 		}
-		else if(pp1.getInterestLevel(prompt(pp2).getName())>0.5) {
+		else if(pp1.getAttractiveness()>0.5) {
 			impressions=pp1.getName+"has bad feeling about"+pp2.getName;
 		}
 		else  {
@@ -56,25 +59,30 @@ public class Conversation {
 		}
 		return impressions;
 	}
-	private
-	
-	public void beginConversation() {
-		status=true;
-		int rand=(Math.random()*2)(int);
-		System.out.println("A conversation between "+p1.getName()+" and "+p2.getName()+" has started");
-		
-		System.out.println(decides(p1,p2));
-		System.out.println(decides(p2,p1));
-		System.out.println(p1.getName()+" talks about "+ prompt(p1).getName());
-		//the upper tells their interests when there are no conversation begins
-		//the down tells who start the conversation and who did the another likes it
-		if(rand>1) {
-			System.out.println(p1.getName()+" talks about "prompt(p1).getName());
-			p2.updateInterestLevel(prompt(p2).getName(),p2.getInterestLevel(prompt(p1).getName()));
-			if(p2.getInterestLevel(prompt(p1).getName())>1.2) {
+	//make it neater
+	private static void middledecides(int r,) {
+		double interests;
+		double interests2;
+		if(r>1) {
+			System.out.println(p1.getName()+" talks about "p1.speak().getName());
+			interests=p2.listen(p1,p1.speak());
+			p2.setImpression(p1.getID(),interests);
+			if(interests>1.2) {
 				System.out.println(p2.getName()+" says he likes "+prompt(p1).getName()+" too.");//the pronoun still need to change
 			}
-			else if(p2.getInterestLevel(prompt(p1).getName())>0.8) {
+			else if(interests>0.8) {
+				System.out.println(p2.getName()+" pretend to listen but got distracted by something.");
+			}
+			else {
+				System.out.println(p2.getName()+" yawns");
+			}
+			System.out.println(p2.getName()+" talks about "p2.speak().getName());
+			interests2\=p1.listen(p2,p2.speak());
+			p1.setImpression(p2.getID(),interests);
+			if(interests>1.2) {
+				System.out.println(p2.getName()+" says he likes "+prompt(p1).getName()+" too");//the pronoun still need to change
+			}
+			else if(interests>0.8) {
 				System.out.println(p2.getName()+" pretend to listen but got distracted by something.");
 			}
 			else {
@@ -82,27 +90,39 @@ public class Conversation {
 			}
 		}
 		else {
-			System.out.println(p1.getName()+" talks about "prompt(p1).getName());
-			p2.updateInterestLevel(prompt(p2).getName(),p2.getInterestLevel(prompt(p1).getName()));
-			if(p2.getInterestLevel(prompt(p1).getName())>1.2) {
+			System.out.println(p2.getName()+" talks about "p2.speak().getName());
+			interests2=p1.listen(p2,p2.speak());
+			p1.setImpression(p2.getID(),interests);
+			if(interests2>1.2) {
 				System.out.println(p2.getName()+" says he likes "+prompt(p1).getName()+" too");//the pronoun still need to change
 			}
-			else if(p2.getInterestLevel(prompt(p1).getName())>0.8) {
+			else if(interests2>0.8) {
+				System.out.println(p2.getName()+" pretend to listen but got distracted by something.");
+			}
+			else {
+				System.out.println(p2.getName()+" yawns");
+			}
+			System.out.println(p1.getName()+" talks about "p1.speak().getName());
+			interests2=p2.listen(p1,p1.speak());
+			p2.setImpression(p1.getID(),interests2);
+			if(interests2>1.2) {
+				System.out.println(p2.getName()+" says he likes "+prompt(p1).getName()+" too.");//the pronoun still need to change
+			}
+			else if(interests2>0.8) {
 				System.out.println(p2.getName()+" pretend to listen but got distracted by something.");
 			}
 			else {
 				System.out.println(p2.getName()+" yawns");
 			}
 		}
-		
-		
-		
-		
 	}
-	private static void enddecides(Person ppp1,Person ppp2) {
-		double interestp1=ppp1.getInterestLevel(prompt(p1).getName());
-		double interestp2=ppp2.getInterestLevel(prompt(p2).getName());
+	
+	
 
+	private static void enddecides(Person ppp1,Person ppp2) {
+		double interestp1=ppp1.getImpression(ppp1.getID());
+		double interestp2=ppp2.getImpression(ppp2.getID());
+		//the down shows the different situation for different interest level
 		if(interestp1>1.8) {
 			
 			if(interestp2>1.8) {
@@ -178,6 +198,18 @@ public class Conversation {
 			}
 		}
 		
+	}
+	public void beginConversation() {
+		status=true;
+
+		int rand=(Math.random()*2)(int);
+		System.out.println("A conversation between "+p1.getName()+" and "+p2.getName()+" has started");
+		System.out.println(begindecides(p1,p2));
+		System.out.println(begindecides(p2,p1));
+
+		//the upper tells their interests when there are no conversation begins
+		//the down tells who start the conversation and who did the another likes it
+		middledecides(rand);	
 	}
 	
 	public void endConversation() {
