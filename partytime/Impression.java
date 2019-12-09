@@ -37,5 +37,6 @@ public class Impression {
 		return overallimpression;
 	}
 	
+	public void setImpression(double tk) {overallimpression *= tk}
 	
 }
