@@ -81,6 +81,13 @@ public class Person {
 		return i.getImpression(this, p.guests[resI]);
 	}
 	
+	public void setImpression(int id, double tk) {
+		Party p = new Party(); Impression i = new Impression();
+		int lenI = this.impressions.length;
+		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
+		i.setImpression(tk);
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

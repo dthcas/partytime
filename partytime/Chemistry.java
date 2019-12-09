@@ -6,8 +6,11 @@ package partytime;
 */
 
 public class Chemistry {
-	
-	public Chemistry() {
-		
+	public static double getChemistry(Person p1, Person p2){
+		double chemistry = Math.random();
+		if(p1.getAge-p2.getAge<=5) this.chemistry += Math.random();
+		}
+		return chemistry;
+	}
 	}
 }
