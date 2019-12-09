@@ -17,6 +17,12 @@ public class Music {
 	private String artist, title;
 	private Duration duration;
 
+	public Music(String artist, String title, Duration duration) {
+		this.artist = artist;
+		this.title = title;
+		this.duration = duration;
+	}
+	
 	public Music(String artist, String title, int minDuration, int secDuration) {
 		this.artist = artist;
 		this.title = title;
