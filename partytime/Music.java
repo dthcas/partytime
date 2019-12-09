@@ -1,3 +1,9 @@
+package partytime;
+
+import java.time.temporal.ChronoUnit;
+
+import java.time.Duration;
+
 /* Music will define a class of song which will be played at a party */
 
 // Music has an artist, title and running time.
@@ -5,7 +11,7 @@
 // 	getNextSong() which will a return a new song
 //  getPlaylist(int numsongs) which will return a list of songs
 //  importMusic() which will scan an input file for songs and store them for use during operation
-import java.time.LocalDate;
+
 
 public class Music {
 	private String artist, title;
