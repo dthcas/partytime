@@ -203,7 +203,7 @@ public class Conversation {
 		status=true;
 
 		int rand=(Math.random()*2)(int);
-		System.out.println("A conversation between "+p1.getName()+" and "+p2.getName()+" has started");
+		System.out.println("The conversation between "+p1.getName()+" and "+p2.getName()+" has started");
 		System.out.println(begindecides(p1,p2));
 		System.out.println(begindecides(p2,p1));
 
@@ -213,7 +213,7 @@ public class Conversation {
 	}
 	
 	public void endConversation() {
-		System.out.print("The conversation between "+p1.getName()+" and "+p2.getName()+" has ended");
+		System.out.println("The conversation between "+p1.getName()+" and "+p2.getName()+" has ended");
 		enddecides(p1,p2);
 		
 		status=false;
