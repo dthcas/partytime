@@ -81,6 +81,10 @@ public class Person {
 		return i.getImpression(this, p.guests[resI]);
 	}
 	
+	public void setImpression(int id, double tk) {
+		// waiting for impression class to update
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
