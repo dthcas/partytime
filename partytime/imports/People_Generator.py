@@ -2,10 +2,11 @@ from faker import Faker
 import random
 
 f = open("people.txt", "w")
-fake = Faker('en_US')
+fake = Faker(['en_US', 'en_AU', 'en_CA', 'en_GB', 'en_NZ'])
 f.write('ID,Name,Age,Humor,Empathy,Attractiveness,Intelligence,Charisma\n')
 
-for _ in range(200):
+c = int(input("how many profiles do you want? "))
+for _ in range(c):
     f.write(str(_ + 1) + ',' + fake.name() + ',')
     f.write(str(random.randint(18, 65)) + ',')
     for __ in range(4):
