@@ -81,6 +81,7 @@ public class Person {
 		return i.getImpression(this, p.guests[resI]);
 	}
 	
+	// under construction
 	public void setImpression(int id, double tk) {
 		Party p = new Party(); Impression i = new Impression();
 		int lenI = this.impressions.length;
@@ -161,6 +162,14 @@ class Person_Util {
 			quickSortImpression(arr, low, pi-1); quickSortImpression(arr, pi+1, high); 
 		} 
 	} 
+	
+	public static Topic sortedBinary(Person arr[], id) {
+		Person p = new Person();
+		Person arr1[] = quickSortImpression(arr, 0, arr.length-1);
+		int lenI = this.impressions.length;
+		int res = binarySearchImpression(arr1, 0, lenI - 1, id);
+		return arr1[res];
+	}
 	
 	public static int linearSearchTopic(int arr[], String name) { 
 		int n = arr.length; 
