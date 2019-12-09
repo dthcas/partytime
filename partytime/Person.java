@@ -82,7 +82,10 @@ public class Person {
 	}
 	
 	public void setImpression(int id, double tk) {
-		// waiting for impression class to update
+		Party p = new Party(); Impression i = new Impression();
+		int lenI = this.impressions.length;
+		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
+		i.setImpression(tk);
 	}
 	
 	public static void main(String[] args) {
