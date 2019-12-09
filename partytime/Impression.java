@@ -1,6 +1,8 @@
+package partytime;
+
 /* Impression: A class which models a person's impressions of another person */
 
-public class Impression extends Code {
+public class Impression {
 	private int id;
 	private double interesting;
 	private double attractive;
@@ -23,10 +25,15 @@ public class Impression extends Code {
 	public void setChemistry(double c) {
 
 		chemistry = c;
-	}	
+	}
 	
-	public double getImpression() {
-		overallimpression = (interesting + attractive + kind + getChemistry(id,id))/4;
+	public double getChemistry(Person p1, Person p2) {
+		
+		return 0.0;
+	}
+	
+	public double getImpression(Person person1, Person person2) {
+		overallimpression = (interesting + attractive + kind + getChemistry(person1,person2))/4;
 		return overallimpression;
 	}
 	

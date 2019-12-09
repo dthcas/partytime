@@ -62,3 +62,5 @@ Part 2 – Coding and Collaboration
 Part 3 – Integration and Output Testing		
 Part 4 – Reflection and Improvement
 
+
+#### Small hint: if any person has any questions, please refer to a dedicated java file (if there is, the name will be same as their corresponding java files), but if there isn't, please either tell the owner to make one or create one manually yourself  - cp24

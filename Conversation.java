@@ -72,7 +72,7 @@ public class Conversation {
 			System.out.println(p1.getName()+" talks about "prompt(p1).getName());
 			p2.updateInterestLevel(prompt(p2).getName(),p2.getInterestLevel(prompt(p1).getName()));
 			if(p2.getInterestLevel(prompt(p1).getName())>1.2) {
-				System.out.println(p2.getName()+" says he likes animals too.");//the pronoun still need to change
+				System.out.println(p2.getName()+" says he likes "+prompt(p1).getName()+" too.");//the pronoun still need to change
 			}
 			else if(p2.getInterestLevel(prompt(p1).getName())>0.8) {
 				System.out.println(p2.getName()+" pretend to listen but got distracted by something.");
@@ -85,7 +85,7 @@ public class Conversation {
 			System.out.println(p1.getName()+" talks about "prompt(p1).getName());
 			p2.updateInterestLevel(prompt(p2).getName(),p2.getInterestLevel(prompt(p1).getName()));
 			if(p2.getInterestLevel(prompt(p1).getName())>1.2) {
-				System.out.println(p2.getName()+" says he likes animals too");//the pronoun still need to change
+				System.out.println(p2.getName()+" says he likes "+prompt(p1).getName()+" too");//the pronoun still need to change
 			}
 			else if(p2.getInterestLevel(prompt(p1).getName())>0.8) {
 				System.out.println(p2.getName()+" pretend to listen but got distracted by something.");

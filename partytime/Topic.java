@@ -1,8 +1,12 @@
+package partytime;
+
 public class Topic {
-	private String name;
+	private final String name;
 	private double interest;
 	private double importance;
-	private String Alan;
+	private final String [] statements; // List of statements about topic
+	private final String [] responses; // List of responses
+	
 	public String getName()
 	{
 		return name;
@@ -23,9 +27,7 @@ public class Topic {
 		importance = i;
 	}
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
+	// Dependency for Person.java
+	public void setInterestRatio(double tk) {this.interest *= tk;}
 
 }
