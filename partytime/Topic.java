@@ -1,9 +1,11 @@
 package partytime;
 
 public class Topic {
-	private String name;
+	private final String name;
 	private double interest;
 	private double importance;
+	private final String [] statements; // List of statements about topic
+	private final String [] responses; // List of responses
 	
 	public String getName()
 	{
