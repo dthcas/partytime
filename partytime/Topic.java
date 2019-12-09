@@ -4,8 +4,8 @@ public class Topic {
 	private final String name;
 	private double interest;
 	private double importance;
-	private final String [] statements; // List of statements about topic
-	private final String [] responses; // List of responses
+	private static final String [] statements; // List of statements about topic
+	private static final String [] responses; // List of responses
 	
 	public String getName()
 	{
