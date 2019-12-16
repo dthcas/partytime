@@ -57,7 +57,7 @@ public class Person {
 		return -1;
 	}
 	
-	public double listen(Person p, Person_Topic t) {
+	public double listen(Person p, Topic t) {
 		return Math.sqrt(p.getInterestLevel(p.getId(), t.getName()) * ((attractiveness+intelligence+charisma)/3));
 	}
 	
