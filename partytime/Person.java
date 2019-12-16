@@ -32,17 +32,19 @@ public class Person {
 
 	public double getInterestLevel(int id, String name) {
 		Party p = new Party();
-		int lenT = this.topics.length, lenI = this.impressions.length;
+		int lenI = this.impressions.length; int lenP = p.guests.length - 1;
 		int resT = Person_Util.linearSearchTopic(this.topics, name);
-		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
+		Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
+		int resI = Person_Util.binarySearchPerson(guestsSorted, 0, lenI - 1, id);
 		return p.guests[resI].getTopics()[resT].getInterest();
 	}
 
 	public void updateInterestLevelManual(int id, String name, double tk) {
 		Party p = new Party();
-		int lenT = this.topics.length; int lenI = this.impressions.length;
+		int lenI = this.impressions.length; int lenP = p.guests.length - 1;
 		int resT = Person_Util.linearSearchTopic(this.topics, name);
-		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
+		Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
+		int resI = Person_Util.binarySearchPerson(guestsSorted, 0, lenI - 1, id);
 		p.guests[resI].getTopics()[resT].setInterest(tk);
 	}
 	
@@ -68,7 +70,6 @@ public class Person {
 	}
 	
 	public void updateInterestLevel(String name, double tk, boolean upOrDown) {
-		int lenT = this.topics.length; Person_Util.verifyPercentage(tk);
 		int resT = Person_Util.linearSearchTopic(this.topics, name);
 		if (upOrDown) {this.getTopics()[resT].setInterestRatio(1 + tk);}
 		else {this.getTopics()[resT].setInterestRatio(1 - tk);}
@@ -76,17 +77,15 @@ public class Person {
 	
 	public double getImpression(int id) {
 		Party p = new Party(); Impression i = new Impression();
-		int lenI = this.impressions.length;
-		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
-		return i.getImpression(this, p.guests[resI]);
+		int lenI = this.impressions.length; int lenP = p.guests.length - 1;
+		Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
+		int resI = Person_Util.binarySearchPerson(guestsSorted, 0, lenI - 1, id);
+		return i.getImpression(this, guestsSorted[resI]);
 	}
 	
 	// under construction
 	public void setImpression(int id, double tk) {
-		Party p = new Party(); Impression i = new Impression();
-		int lenI = this.impressions.length;
-		int resI = Person_Util.binarySearchImpression(p.guests, 0, lenI - 1, id);
-		i.setImpression(tk);
+		
 	}
 	
 	public static void main(String[] args) {
@@ -140,40 +139,32 @@ class Person_Util {
 		return i+1; 
 	} 
 	
-	public static int binarySearchImpression(Topic arr[], int l, int r, int x) {
-		quickSortImpression(arr);
+	public static int binarySearchPerson(Person arr[], int l, int r, int x) {
+		Person[] arr2 = quickSortPerson(arr, 0, arr.length-1);
 		if (r >= l) { 
 			int mid = l + (r - l) / 2; 
-			if (arr[mid].getName().compareTo(x) == 0) return mid; 
-			if (arr[mid].getName().compareTo(x) > 0) {
-				return binarySearchTopic(arr, l, mid - 1, x); 
-			}
-			return binarySearchTopic(arr, mid + 1, r, x); 
+			if (arr2[mid].getId() == x) return mid; 
+			if (arr2[mid].getId() > x) return binarySearchPerson(arr, l, mid - 1, x);
+			return binarySearchPerson(arr, mid + 1, r, x); 
 		} 
 
 		return -1; 
 	}
-	
-	public static void quickSortImpression(Person arr[], int low, int high) {
+
+	public static Person[] quickSortPerson(Person arr[], int low, int high) {
 		int[] tmp = new int[arr.length];
 		for (int i=0; i<tmp.length-1; i++) {tmp[i] = arr[i].getId();}
 		if (low < high) { 
 		    int pi = partition(tmp, low, high);
-			quickSortImpression(arr, low, pi-1); quickSortImpression(arr, pi+1, high); 
-		} 
+			quickSortPerson(arr, low, pi-1); quickSortPerson(arr, pi+1, high); 
+		}
+
+		return arr;
 	} 
-	
-	public static Topic sortedBinary(Person arr[], id) {
-		Person p = new Person();
-		Person arr1[] = quickSortImpression(arr, 0, arr.length-1);
-		int lenI = this.impressions.length;
-		int res = binarySearchImpression(arr1, 0, lenI - 1, id);
-		return arr1[res];
-	}
-	
-	public static int linearSearchTopic(int arr[], String name) { 
+
+	public static int linearSearchTopic(Topic arr[], String name) { 
 		int n = arr.length; 
-		for(int i = 0; i < n; i++) {if (arr[i] == name) return i;} 
+		for(int i = 0; i < n; i++) {if (arr[i].equals(name)) return i;} 
 		return -1; 
 	} 
 
@@ -187,8 +178,7 @@ class Person_Util {
 		if (0 <= pt && pt <= 1) return true;
 		else {
 			System.out.println("Please check your range again! 0 <= x <= 1");
-			System.exit(0);
-			return false;
+			System.exit(0); return false;
 		}
 	}
 	
