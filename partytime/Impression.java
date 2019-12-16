@@ -10,7 +10,7 @@ public class Impression {
 	private double chemistry;
 	private double overallimpression;
 	
-	public Impression{int i_id, double i_interesting, double i_attractive, double i_kind){
+	public Impression(int i_id, double i_interesting, double i_attractive, double i_kind){
 		id = i_id;
 		interesting = i_interesting;
 		attractive = i_attractive;
@@ -44,6 +44,6 @@ public class Impression {
 		return overallimpression;
 	}
 	
-	public void setImpression(double tk) {overallimpression *= tk}
+	public void setImpression(double tk) {overallimpression *= tk;}
 	
 }
