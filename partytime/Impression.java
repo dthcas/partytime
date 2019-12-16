@@ -10,6 +10,13 @@ public class Impression {
 	private double chemistry;
 	private double overallimpression;
 	
+	public Impression{int i_id, double i_interesting, double i_attractive, double i_kind){
+		id = i_id;
+		interesting = i_interesting;
+		attractive = i_attractive;
+		kind = i_kind;
+	}
+	
 	public void setInteresting(double i) {
 		interesting = i;
 	}
