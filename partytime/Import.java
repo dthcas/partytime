@@ -5,7 +5,7 @@ import java.io.*;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.io.IOException;
+import java.net.URL;
 //import java.nio.charset.StandardCharsets;
 //import java.nio.file.Files;
 //import java.nio.file.Path;
@@ -19,14 +19,17 @@ public class Import {
 	
 	public Import() {
 		
+		File pdir = new File("partytime/imports/people.csv");
+		File tdir = new File("partytime/imports/topics.csv");
+		File mdir = new File("partytime/imports/music.csv");
+		
 		try {
-			getPeopleFromCSV("imports\\people.csv");
-			getTopicsFromCSV("imports\\topics.csv");
-			getMusicFromCSV("imports\\music.csv");
+			getPeopleFromCSV(pdir.getAbsolutePath());
+			getTopicsFromCSV(tdir.getAbsolutePath());
+			getMusicFromCSV(mdir.getAbsolutePath());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		  }
 		
 	}
 	
@@ -34,14 +37,14 @@ public class Import {
 		
 		// find the path to the file and create an instance of BufferedReader
 		BufferedReader br = new BufferedReader(new FileReader(fileName));
-
+		
 		// create a new list of people for returning to user
 		// make an arraylist to hold all people from the file.  This way we can 
 		// choose random people from the list instead of the same first few.
 		//ArrayList<Person> allPeople = new ArrayList<>();
 		// read the first line from the text file
 		String line = br.readLine();
-
+		System.out.println("Reading line: "+line);
 		// temp person information variables
 		int p_id,p_age;
 		Double p_hm, p_em, p_at, p_in, p_ch;
@@ -50,8 +53,8 @@ public class Import {
 		// loop until all lines are read
 		while (line != null) {
 
-			if(lineNum++==1) continue; // Ignore the first line and increment the line number
-
+			if(lineNum==1) { lineNum++; line = br.readLine(); }// Ignore the first line and increment the line number
+			System.out.println("Reading line: "+line);
 			// use string.split to load a string array with the values from
 			// each line of the file, using a comma as the delimiter
 			String[] values = line.split(",");
@@ -84,7 +87,7 @@ public class Import {
 	// Does so by making a clone of the master list then removing people from it and adding it to
 	// a regular array.
 	
-	public static Person[] getPeople(int num) {
+	public Person[] getPeople(int num) {
 		
 		Person [] pList = new Person[num];
 		ArrayList<Person> cloneList = new ArrayList<Person>(allPeople);
@@ -155,7 +158,7 @@ public class Import {
 	
 	
 	// Used by other classes to receive a fixed number of Topics in array form
-	public static Topic[] getTopics(int num) {
+	public Topic[] getTopics(int num) {
 
 		Topic [] tList = new Topic[num];
 		ArrayList<Topic> cloneList = new ArrayList<Topic>(allTopics);
@@ -230,7 +233,7 @@ public class Import {
 	// Does so by making a clone of the master list then removing people from it and adding it to
 	// a regular array.
 	
-	public static Music[] getPlaylist(int num) {
+	public Music[] getPlaylist(int num) {
 		
 		Music [] mList = new Music[num];
 		ArrayList<Music> cloneList = new ArrayList<Music>(allMusic);
