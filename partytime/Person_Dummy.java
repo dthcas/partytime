@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class Person {
 
+	// first declare all the variables
 	private int age;
 	private String name;
 	private final int id;
@@ -14,6 +15,7 @@ public class Person {
 	private Impression[] impressions;
 	private Topic[] topics;
 	
+	// the initial constructor
 	public Person(int age, String name, int id, double hm, double em, double at, double in, double ch) {
 		this.age = age;
 		this.name = name;
@@ -29,6 +31,7 @@ public class Person {
 		}
 	}
 	
+	// the retriever functions
 	public int getAge() {
 		return this.age;
 	}
@@ -45,6 +48,7 @@ public class Person {
 		return this.topics;
 	}
 	
+	// the set functions
 	public void setAge(int a) {
 		this.age = a;
 	}
@@ -52,26 +56,45 @@ public class Person {
 		this.name = n;
 	}
 
+	// returns a person `id`'s interest level regarding a topic `name`
 	public double getInterestLevel(int id, String name) {
+		// create a new party and all the necessary variables
 		Party p = new Party();
 		int lenI = this.impressions.length;
 		int lenP = p.guests.length - 1;
 		int resT = Person_Util.linearSearchTopic(this.topics, name);
+		
+		// remember to sort the array before binary search it
+		// binary search is used because person array may be long (efficient)
+		// then return the specific guest's topic's interest level
 		Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
 		int resI = Person_Util.binarySearchPerson(guestsSorted, 0, lenI - 1, id);
 		return p.guests[resI].getTopics()[resT].getInterest();
 	}
 
+	// updates a person `id`'s interest level regarding a topic `name`
+	// by a token `tk` between 0 and 1, a ratio of increase or decrease
 	public void updateInterestLevelManual(int id, String name, double tk) {
+		// create a new party and all the necessary variables
 		Party p = new Party();
 		int lenI = this.impressions.length;
 		int lenP = p.guests.length - 1;
 		int resT = Person_Util.linearSearchTopic(this.topics, name);
+		
+		// remember to sort the array before binary search it
+		// not explaining again why binary search is used (see l. 68)
+		// check the percentage first before adding it
 		Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
 		int resI = Person_Util.binarySearchPerson(guestsSorted, 0, lenI - 1, id);
-		p.guests[resI].getTopics()[resT].setInterest(tk);
+		if (verifyPercentage(tk) {
+			p.guests[resI].getTopics()[resT].setInterest(tk);
+		} else {
+			System.out.println("Please check your tk: between 0 and 1");
+		}
 	}
 	
+	// get the attributes - specifically the final variables - of a person
+	// takes an argument to simplify the overlapped code
 	public double getAttribute(String arg) {
 		if (arg.toLowerCase().equals("humor")) return this.humor;
 		if (arg.toLowerCase().equals("empathy")) return this.empathy;
@@ -81,28 +104,45 @@ public class Person {
 		return -1;
 	}
 	
+	// takes a topic, a person speaking, and returns this user's interest level
 	public double listen(Person p, Topic t) {
 		return Math.sqrt(p.getInterestLevel(p.getId(), t.getName()) * ((attractiveness+intelligence+charisma)/3));
 	}
 	
+	// again, under construction. complicated/undecided algorithms
 	private void judge(Person p, Topic t) {
 		
 	}
 	
+	// returns a random topic that the user knows about to awkwardly start a conversation
 	public Topic speak() {
 		return topics[(int) Math.random()*(topics.length-1)];
 	}
 	
+	// updates the interest level of a topic `name`
+	// if the boolean is true, means increase, otherwise it's decrease by token tk
 	public void updateInterestLevel(String name, double tk, boolean upOrDown) {
+		// create all the necessary variables
 		int resT = Person_Util.linearSearchTopic(this.topics, name);
-		if (upOrDown) {this.getTopics()[resT].setInterestRatio(1 + tk);}
-		else {this.getTopics()[resT].setInterestRatio(1 - tk);}
+		
+		// check whether to increase or decrease the percentage
+		if (upOrDown) {
+			this.getTopics()[resT].setInterestRatio(1 + tk);
+		} else {
+			this.getTopics()[resT].setInterestRatio(1 - tk);
+		}
 	}
 	
+	// returns the impression of a person of `id`
 	public double getImpressionOfPerson(int id) {
+		// create all the necessary variables
 		Party p = new Party();
 		int lenI = this.impressions.length;
 		int lenP = p.guests.length - 1;
+		
+		// assumes that the impression of a person is situated
+		// at the same index of the `guests` list:
+		// after sorting + searching, return the value
 		Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
 		int resI = Person_Util.binarySearchPerson(guestsSorted, 0, lenI - 1, id);
 		return impressions[resI].getImpression(this, guestsSorted[resI]);
@@ -113,6 +153,7 @@ public class Person {
 		
 	}
 	
+	// why the heck is this even here? Dammmmmmmmmn
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
