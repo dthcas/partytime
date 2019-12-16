@@ -1,3 +1,5 @@
+package partytime;
+
 import java.util.*;
 
 public class Party {
