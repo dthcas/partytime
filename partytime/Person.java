@@ -75,12 +75,12 @@ public class Person {
 		else {this.getTopics()[resT].setInterestRatio(1 - tk);}
 	}
 	
-	public double getImpression(int id) {
-		Party p = new Party(); Impression i = new Impression();
+	public double getImpressionOfPerson(int id) {
+		Party p = new Party();
 		int lenI = this.impressions.length; int lenP = p.guests.length - 1;
 		Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
 		int resI = Person_Util.binarySearchPerson(guestsSorted, 0, lenI - 1, id);
-		return i.getImpression(this, guestsSorted[resI]);
+		return impressions[resI].getImpression(this, guestsSorted[resI]);
 	}
 	
 	// under construction

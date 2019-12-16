@@ -13,19 +13,19 @@ public class Party {
 	Music [] playlist;
 	
 	public void startParty() {
+		Import ip = new Import();
 		System.out.print("What is the maximum amount of people that can be in the party?");
 		Scanner scan = new Scanner(System.in);
-		max = scan.nextInt();
-		Person[] guests = new Person[max];
+		max = scan.nextInt(); Person[] guests = new Person[max];
+		ip.getPeopleFromCSV("Imports/people.csv"); ArrayList<Person> tmp = ip.getAllPeople();
 		for(int i=0; i<max ;i++) {
-			guests[i]= Import.getPeopleFromCSV(num, fileName);
-			attendees+=1;
+			attendees+=1; guests[i] = tmp.get(i);
 		}
 		System.out.print("The party has started");
 	}
 	
 	private void changeMusic() {
-		PlayList.getNextSong;
+		Playlist pl = new Playlist(); Music cur_song = pl.getNextSong();
 	}
 	
 	public int getGuests() {

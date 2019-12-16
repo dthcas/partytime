@@ -17,6 +17,8 @@ public class Import {
 	private static ArrayList<Topic> allTopics;
 	private static ArrayList<Music> allMusic;
 	
+	public ArrayList<Person> getAllPeople() {return this.allPeople;}
+	
 	public Import() {
 		
 		File pdir = new File("partytime/imports/people.csv");
@@ -33,7 +35,7 @@ public class Import {
 		
 	}
 	
-	private void getPeopleFromCSV(String fileName) throws IOException {
+	public void getPeopleFromCSV(String fileName) throws IOException {
 		
 		// find the path to the file and create an instance of BufferedReader
 		BufferedReader br = new BufferedReader(new FileReader(fileName));
