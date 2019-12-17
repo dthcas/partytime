@@ -1,4 +1,5 @@
 # Person.md
+## Outdated file, will be updated soon, just nawt now
 
 ![imgur](https://i.imgur.com/wpcmfKB.png)
 #### Hint: Some syntax, like the tables and the checklist, are Github-specific
