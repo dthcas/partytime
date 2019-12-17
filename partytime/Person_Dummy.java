@@ -249,9 +249,14 @@ class Person_Util {
 		return i+1; 
 	} 
 	
+	// search for the FIRST topic with the name x
 	public static int binarySearchPerson(Person arr[], int l, int r, int x) {
 		Person[] arr2 = quickSortPerson(arr, 0, arr.length-1);
-		if (r >= l) { 
+		if (r >= l) {
+			// find the middle index
+			// return the index if it fits the requirement
+			// delete the half partition where the number won't be at through checking the value
+			// otherwise, return the other half
 			int mid = l + (r - l) / 2;
 			int mid_id = arr2[mid].getId();
 			if (mid_id == x) {
@@ -287,8 +292,11 @@ class Person_Util {
 		} 
 		return -1; 
 	} 
-
+	
+	// verify that if the attribute is in the right range between 0 and 2
 	public static boolean verifyAttributes(double hm, double em, double at, double in, double ch) {
+		// check whether any variable exceeds this border
+		// otherwise return true
 		if (hm > 2 || em > 2 || at > 2 || in > 2 || ch > 2 ||
 				hm < 0 || em < 0 || at < 0 || in < 0 || ch < 0) {
 			return false;
@@ -298,6 +306,8 @@ class Person_Util {
 		
 	}
 	
+	// verify that the percentage given is between 0 and 1
+	// else, print message and exit to prevent bugs if false
 	public static boolean verifyPercentage(double pt) {
 		if (0 <= pt && pt <= 1) {
 			return true;
