@@ -130,7 +130,7 @@ public class Import {
 		// loop until all lines are read
 		while (line != null) {
 
-			if(lineNum++==1) continue; // Ignore the first line and increment the line number
+			if(lineNum==1) { br.readLine(); lineNum++; // Ignore the first line and increment the line number
 
 			// use string.split to load a string array with the values from
 			// each line of the file, using a comma as the delimiter.
@@ -199,7 +199,7 @@ public class Import {
 		// loop until all lines are read
 		while (line != null) {
 	
-			if(lineNum++==1) continue; // Ignore the first line and increment the line number
+			if(lineNum==1) { br.readLine(); lineNum++; } // Ignore the first line and increment the line number
 	
 			// use string.split to load a string array with the values from
 			// each line of the file, using a comma as the delimiter
