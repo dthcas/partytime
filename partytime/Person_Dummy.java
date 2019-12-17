@@ -109,9 +109,17 @@ public class Person {
 		return Math.sqrt(p.getInterestLevel(p.getId(), t.getName()) * ((attractiveness+intelligence+charisma)/3));
 	}
 	
-	// again, under construction. complicated/undecided algorithms
-	private void judge(Person p, Topic t) {
+	// judges a person based on how interesting while listening to his speech
+	private void judge(Person pr, Topic t) {
+		// create all the necessary variables
+		double temp = listen(pr, t); Party p = new Party();
 		
+		// set the impressions by creating a new object,
+		// initialize the impressions variable to an array with the length of the guests
+		// set the impressions at a specific index, pre-set to the id of the person
+		Impression i = new Impression(pr.getId(), temp, temp, temp);
+		this.impressions = new Impression[p.guests.length];
+		impressions[pr.getId()] = i;
 	}
 	
 	// returns a random topic that the user knows about to awkwardly start a conversation
@@ -148,9 +156,17 @@ public class Person {
 		return impressions[resI].getImpression(this, guestsSorted[resI]);
 	}
 	
-	// under construction
+	// sets the impression of a person `id` by token `tk` between 0 and 1
 	public void setImpression(int id, double tk) {
+		// create all the necessary variables
+		Party p = new Party();
+		int lenI = this.impressions.length; int lenP = p.guests.length - 1;
 		
+		// again, assumes that all the contents are ordered
+		// changes the value of the impression by token `tk` between 0 and 1
+		Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
+		int resI = Person_Util.binarySearchPerson(guestsSorted, 0, lenI - 1, id);
+		this.impressions[resI].setImpression(tk);
 	}
 	
 	// why the heck is this even here? Dammmmmmmmmn
@@ -233,9 +249,14 @@ class Person_Util {
 		return i+1; 
 	} 
 	
+	// search for the FIRST topic with the name x
 	public static int binarySearchPerson(Person arr[], int l, int r, int x) {
 		Person[] arr2 = quickSortPerson(arr, 0, arr.length-1);
-		if (r >= l) { 
+		if (r >= l) {
+			// find the middle index
+			// return the index if it fits the requirement
+			// delete the half partition where the number won't be at through checking the value
+			// otherwise, return the other half
 			int mid = l + (r - l) / 2;
 			int mid_id = arr2[mid].getId();
 			if (mid_id == x) {
@@ -271,8 +292,11 @@ class Person_Util {
 		} 
 		return -1; 
 	} 
-
+	
+	// verify that if the attribute is in the right range between 0 and 2
 	public static boolean verifyAttributes(double hm, double em, double at, double in, double ch) {
+		// check whether any variable exceeds this border
+		// otherwise return true
 		if (hm > 2 || em > 2 || at > 2 || in > 2 || ch > 2 ||
 				hm < 0 || em < 0 || at < 0 || in < 0 || ch < 0) {
 			return false;
@@ -282,6 +306,8 @@ class Person_Util {
 		
 	}
 	
+	// verify that the percentage given is between 0 and 1
+	// else, print message and exit to prevent bugs if false
 	public static boolean verifyPercentage(double pt) {
 		if (0 <= pt && pt <= 1) {
 			return true;

@@ -61,8 +61,11 @@ public class Person {
 		return Math.sqrt(p.getInterestLevel(p.getId(), t.getName()) * ((attractiveness+intelligence+charisma)/3));
 	}
 	
-	private void judge(Person p, Topic t) {
-		
+	private void judge(Person pr, Topic t) {
+		double temp = listen(pr, t); Party p = new Party();
+		Impression i = new Impression(pr.getId(), temp, temp, temp);
+		this.impressions = new Impression[p.guests.length];
+		impressions[pr.getId()] = i;
 	}
 	
 	public Topic speak() {
@@ -75,7 +78,10 @@ public class Person {
 		else {this.getTopics()[resT].setInterestRatio(1 - tk);}
 	}
 	
-	public double getImpressionOfPerson(int id) {
+	// for the two functions below, it is assumed that the `impression`
+	// array have matching index with the guests array **impression object**
+	// remember to recover back to the original array before changing it (to-be fixed)
+	public double getImpression(int id) {
 		Party p = new Party();
 		int lenI = this.impressions.length; int lenP = p.guests.length - 1;
 		Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
@@ -83,9 +89,12 @@ public class Person {
 		return impressions[resI].getImpression(this, guestsSorted[resI]);
 	}
 	
-	// under construction
 	public void setImpression(int id, double tk) {
-		
+		Party p = new Party();
+		int lenI = this.impressions.length; int lenP = p.guests.length - 1;
+		Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
+		int resI = Person_Util.binarySearchPerson(guestsSorted, 0, lenI - 1, id);
+		this.impressions[resI].setImpression(tk);
 	}
 	
 	public static void main(String[] args) {
