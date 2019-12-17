@@ -1,4 +1,4 @@
-// package partytime;
+package partytime;
 
 // Person class - To model a person who attends a party, interacts and forms opinions about the guests
 // Please check https://github.com/dthcas/partytime/blob/master/Person.md for further references
