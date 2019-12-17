@@ -109,9 +109,17 @@ public class Person {
 		return Math.sqrt(p.getInterestLevel(p.getId(), t.getName()) * ((attractiveness+intelligence+charisma)/3));
 	}
 	
-	// again, under construction. complicated/undecided algorithms
-	private void judge(Person p, Topic t) {
+	// judges a person based on how interesting while listening to his speech
+	private void judge(Person pr, Topic t) {
+		// create all the necessary variables
+		double temp = listen(pr, t); Party p = new Party();
 		
+		// set the impressions by creating a new object,
+		// initialize the impressions variable to an array with the length of the guests
+		// set the impressions at a specific index, pre-set to the id of the person
+		Impression i = new Impression(pr.getId(), temp, temp, temp);
+		this.impressions = new Impression[p.guests.length];
+		impressions[pr.getId()] = i;
 	}
 	
 	// returns a random topic that the user knows about to awkwardly start a conversation
@@ -148,9 +156,17 @@ public class Person {
 		return impressions[resI].getImpression(this, guestsSorted[resI]);
 	}
 	
-	// under construction
+	// sets the impression of a person `id` by token `tk` between 0 and 1
 	public void setImpression(int id, double tk) {
+		// create all the necessary variables
+		Party p = new Party();
+		int lenI = this.impressions.length; int lenP = p.guests.length - 1;
 		
+		// again, assumes that all the contents are ordered
+		// changes the value of the impression by token `tk` between 0 and 1
+		Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
+		int resI = Person_Util.binarySearchPerson(guestsSorted, 0, lenI - 1, id);
+		this.impressions[resI].setImpression(tk);
 	}
 	
 	// why the heck is this even here? Dammmmmmmmmn
