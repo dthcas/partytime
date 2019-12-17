@@ -1,1 +1,257 @@
-
+ID,Name,Age,Humor,Empathy,Attractiveness,Intelligence,Charisma
+1,Eva Almansa D�ez,28,0.78,0.05,1.84,0.12,0.78
+2,Nathalie Gay Le Guyot,50,1.61,1.07,0.09,0.03,1.28
+3,Jennifer Gallegos,50,1.19,0.3,0.95,1.73,0.88
+4,Jose Villalonga Bou,30,1.38,0.61,1.77,1.91,1.89
+5,Tammy Smith,64,1.67,1.49,1.26,1.49,0.05
+6,Mrs. Katherine Wall,24,0.39,1.93,1.96,0.18,1.9
+7,Nathan Castillo,54,0.01,1.75,0.52,1.1,1.01
+8,Sean Johnson,54,0.19,1.53,1.04,1.6,1.91
+9,Inmaculada Vall Guillen,60,1.48,1.43,0.28,0.83,0.7
+10,Dylan Harrington,49,1.44,1.32,0.88,2.0,1.17
+11,John Foster,47,1.27,0.11,0.8,1.76,0.91
+12,Lauren Gibbons,39,0.51,1.96,1.77,1.23,1.84
+13,Fiona Bryant,32,1.37,1.78,0.38,1.03,0.95
+14,No�l Labbe,35,0.86,1.7,1.72,1.29,0.83
+15,Shaun Hawkins,49,0.48,1.26,0.61,1.99,1.71
+16,Alvaro Vallejo-M�rmol,52,0.21,1.41,1.89,0.2,1.12
+17,Alexis Page,18,1.16,0.83,1.53,1.17,1.71
+18,Rocio Madrigal Salas,44,1.57,0.12,0.56,0.09,0.86
+19,Rachael Clarke,33,0.36,0.48,1.18,1.75,1.31
+20,Susan Jones,55,0.67,0.9,0.73,1.04,1.07
+21,Nathan Rose,65,1.65,1.79,0.22,1.91,0.96
+22,Fr�d�ric Carre,31,0.76,1.51,1.47,1.91,0.39
+23,Audrey Lewis,47,0.92,0.46,0.27,1.21,0.1
+24,Charles Adams MD,39,0.33,1.32,1.39,0.48,0.61
+25,Ryan Francis,49,1.26,1.81,1.98,1.86,1.76
+26,Sean Martin,20,1.86,0.21,0.21,1.46,0.65
+27,Damien Hope-Smith,28,1.9,1.64,0.49,0.74,0.79
+28,Ren�e de la Rodrigues,55,0.87,1.0,1.47,1.31,1.07
+29,Melissa O'Leary,42,1.48,1.42,0.79,0.63,1.15
+30,Arnaude Guichard,51,1.21,0.95,1.58,0.08,1.11
+31,Dennis Watson,25,1.65,1.96,0.14,0.71,0.24
+32,Colin Cooper,25,1.66,0.81,1.22,1.17,0.36
+33,G�rard Rousseau du Chauvin,47,1.89,0.76,0.1,0.34,1.66
+34,Francisco Pomares Pedrosa,19,1.83,1.58,1.81,0.08,0.47
+35,Nicole Nichols,42,1.24,1.71,1.75,0.8,1.46
+36,Tyler Smith,31,0.42,0.48,0.5,1.99,0.72
+37,Ms. Julie Warren,46,0.64,1.09,0.5,1.33,1.37
+38,David Laroche,45,0.42,1.39,0.07,0.48,1.18
+39,Jay Lynch,18,0.6,0.44,1.0,1.65,0.96
+40,Lindsey Barry,32,1.64,0.99,1.38,0.11,0.53
+41,Patricia Mayer,52,1.52,0.8,0.75,0.57,0.9
+42,Alexandrie Blanchard de la Thibault,42,0.38,0.94,1.25,1.79,1.02
+43,Audrey de la Meyer,21,0.41,0.15,0.46,1.59,1.14
+44,Ms. Katherine Robinson,41,0.09,0.16,1.76,0.59,1.96
+45,Raymond Beattie-Scott,45,0.77,2.0,1.42,0.76,0.22
+46,Krystal Davis,37,0.66,0.99,0.37,0.59,0.75
+47,Donna MacPherson-Read,32,1.55,0.9,1.43,0.57,0.49
+48,Carla Turner-Caldwell,59,1.83,0.41,0.44,1.32,0.89
+49,Erik Schultz,25,0.5,1.64,1.22,1.36,0.42
+50,Janet Donald,49,1.09,1.08,1.37,0.06,0.88
+51,Amparo Ca�as Leon,23,0.27,1.02,1.12,0.76,1.66
+52,Lauren Stewart,23,0.27,0.2,1.99,1.12,0.59
+53,�ngeles Pineda Marin,56,0.53,0.98,0.15,1.77,0.26
+54,Richard Meyer,36,0.26,0.33,1.9,0.75,1.52
+55,Nathalie Hoareau,41,0.16,0.9,0.4,1.86,1.66
+56,Kayla Ayala,62,0.22,1.03,1.08,0.99,0.48
+57,Gina Rodriguez,25,0.1,1.53,1.45,0.43,0.91
+58,Gabriel Fournier,56,1.28,1.48,1.29,0.51,0.55
+59,Mr. Victor Sharpe,33,1.0,0.59,1.41,1.67,0.35
+60,Caroline Turner,31,1.44,0.13,0.1,0.32,0.65
+61,Dr. David Hubbard,62,0.51,0.16,1.82,1.16,1.75
+62,Joseph Valdez,46,1.01,1.96,1.42,1.16,0.16
+63,Donna Dean,27,0.96,1.12,1.98,1.37,0.28
+64,Julio Briones Cervantes,40,0.67,1.92,1.31,1.22,1.47
+65,Malcolm Cairns-McGill,26,0.23,1.42,0.29,0.97,1.29
+66,Heather Valdez,59,0.82,1.33,1.14,1.53,1.22
+67,Shawn Lewis,22,0.16,1.54,1.22,0.2,0.05
+68,Ms. Erin Rose,56,0.63,0.07,0.14,1.93,1.94
+69,Regina Collins,42,1.71,1.23,0.82,0.34,0.21
+70,Abigail Lewis,51,0.43,0.65,1.34,1.92,0.71
+71,Marc Roux,55,1.57,0.23,1.66,1.3,1.61
+72,Kristen Marshall,26,0.16,0.27,1.86,0.16,1.29
+73,Jason Hicks,26,1.0,1.47,1.58,0.87,1.3
+74,Kelly Price,42,1.85,0.93,0.47,0.37,1.74
+75,Nicola Corlett-Gardner,29,0.51,0.14,1.87,0.94,1.69
+76,Debbie Shannon,19,0.37,0.94,0.35,0.18,0.5
+77,Amanda Richard,22,1.4,1.76,1.14,0.63,1.14
+78,Jose Carlos Rozas,41,1.97,0.75,0.82,1.48,1.78
+79,Seth Hernandez,50,1.49,1.27,0.71,0.85,0.59
+80,Charles Daniels,50,0.6,1.96,1.18,1.5,1.95
+81,Cristina Montero,64,1.11,0.43,1.26,0.18,1.39
+82,Charles Combs,46,0.82,1.64,1.05,1.27,1.1
+83,Lourdes Sebasti�n Esteban,42,1.28,1.07,1.72,1.5,1.36
+84,Patricia de Arnaud,37,1.33,0.31,1.72,1.66,0.51
+85,Denise Meyer,31,1.13,0.34,0.84,0.69,1.86
+86,Katie Day-Middleton,41,0.31,1.83,0.79,1.27,0.28
+87,Enrique Tirado Carri�n,37,0.59,1.86,1.34,0.6,1.66
+88,Felix Cornejo Nogueira,40,0.74,0.58,0.25,0.97,0.75
+89,Dorothy Pollard,42,0.45,1.75,1.39,0.48,1.7
+90,Philippe Gomez-Mace,27,1.61,1.86,0.81,1.8,1.33
+91,David Williams,60,1.65,1.86,1.29,1.2,1.01
+92,Gerald Mitchell,54,0.06,1.0,0.33,1.41,1.56
+93,Diane Rodgers-Barrett,31,1.26,1.39,1.28,0.21,0.12
+94,Samantha Bell,27,1.91,1.13,0.06,0.39,1.32
+95,Sam Burns,52,0.93,1.74,0.46,0.24,0.76
+96,Ethan Mason,23,1.95,1.97,0.48,0.51,1.68
+97,Miss Lynda Sanders,26,0.57,1.18,1.32,1.6,1.51
+98,Kevin Gibson,34,0.13,1.42,1.97,0.45,1.57
+99,Olga Escobar-Mariscal,31,0.11,1.86,0.25,1.71,1.68
+100,Sarah Myers,38,1.34,0.03,0.74,0.42,1.91
+101,Alicia Case,62,0.45,1.57,0.17,0.95,0.51
+102,Claudine Samson,54,1.65,1.43,0.47,1.73,0.89
+103,Andrea Gardner,47,1.67,1.85,1.81,0.03,1.31
+104,Noelia Nevado �ngel,29,0.97,0.75,0.55,0.23,1.78
+105,Meagan Knight,38,0.67,1.02,1.29,0.79,0.43
+106,Miguel Cepeda Aranda,23,1.15,1.62,0.24,0.94,0.71
+107,�douard Jacquot de la Meunier,52,1.61,1.39,0.78,1.7,1.6
+108,James Wiggins,38,1.44,1.25,1.28,0.41,1.14
+109,Manuela Malo Fajardo,31,0.66,1.16,0.13,0.9,1.05
+110,Joshua Morgan,19,0.53,0.71,0.1,1.55,0.39
+111,Gloria Holt,50,1.54,0.73,1.23,0.43,1.13
+112,Mrs. Jasmine White,46,1.47,1.89,1.33,1.62,0.94
+113,Dr. Marilyn Randall,26,0.06,1.12,1.88,0.74,1.02
+114,Denise Irving,18,0.81,0.02,1.15,1.39,0.57
+115,Frederick Jones-Hussain,57,1.81,1.06,1.66,0.66,0.58
+116,Andrew Berry,60,0.23,0.45,1.73,0.55,0.8
+117,Barbara Chapman,56,0.91,1.4,1.75,1.29,0.58
+118,Antonio Turner,51,1.03,1.04,1.17,0.27,0.04
+119,Alicia Scott,37,1.13,0.65,1.93,0.58,1.75
+120,Jayne Chan,35,1.11,0.25,1.49,1.5,0.1
+121,Lynne Pope,36,1.56,1.52,0.68,1.2,1.89
+122,Jessica Wiley,41,0.39,0.37,0.98,1.21,1.54
+123,Kenneth Hebert,40,1.97,0.35,1.36,0.49,1.7
+124,George Shannon,60,0.7,1.02,0.09,0.69,0.37
+125,Elaine Sanderson-Read,50,0.72,0.67,1.71,1.69,0.64
+126,Miss Katy Chandler,35,0.04,0.77,1.15,1.04,1.09
+127,Laurent Guichard,27,0.82,0.2,0.13,1.46,1.97
+128,Jan Wilkinson,42,1.85,0.32,0.34,1.05,1.64
+129,Craig Smith,22,1.91,1.81,0.1,1.67,0.72
+130,Jason Brown,63,1.93,0.91,1.32,1.63,0.85
+131,Kerry Walters,19,1.05,1.2,0.02,1.74,1.43
+132,Kaylee Delgado,22,0.06,0.39,1.64,0.17,0.82
+133,Andrew Leon,40,0.81,1.27,0.42,1.0,1.89
+134,Krystal Peterson,37,1.75,1.17,1.52,0.66,1.78
+135,Harry Watt,19,0.08,0.54,0.06,1.58,0.49
+136,Gina Jacobson,26,0.8,1.89,1.41,0.96,0.95
+137,Kathleen West,28,1.43,1.32,1.89,1.31,1.12
+138,Colin Barber-Miles,26,0.15,0.89,1.64,1.61,1.76
+139,Mr. Adam Williams,62,1.94,1.04,1.72,1.23,1.07
+140,Georges Dos Santos,28,1.79,0.83,1.78,0.17,1.35
+141,Adri�n Fuster C�spedes,43,1.11,1.69,1.19,0.63,1.98
+142,Hugo Gabald�n Fuentes,30,1.2,1.78,1.54,0.61,0.84
+143,Kathy Reyes,43,0.14,1.66,0.77,1.56,1.25
+144,Emma Woods,39,0.72,0.73,0.97,0.79,0.25
+145,Christopher Bender,62,0.4,0.77,0.83,0.32,0.4
+146,Dr. Carol Matthews,62,1.71,0.32,0.76,0.31,0.5
+147,Ann White,63,1.8,1.11,0.74,0.68,1.95
+148,Sandra Robinson,37,1.89,1.2,1.03,1.22,0.2
+149,Jason O'Connor,43,1.05,0.04,1.28,0.97,0.79
+150,Jorge Moles,38,0.25,1.12,1.78,1.54,0.76
+151,Alain du Pineau,28,1.18,0.98,1.63,0.1,0.98
+152,Sarah Pittman,39,1.31,1.65,1.16,0.44,0.51
+153,Samantha Nelson,59,0.07,1.5,0.62,0.92,1.67
+154,Kenneth Savage,29,1.31,0.17,0.58,1.29,0.01
+155,Dr. Karl Carter,18,0.99,1.5,1.7,0.85,1.82
+156,Simone Rossi,25,1.27,1.67,1.44,0.52,1.87
+157,Elisa Peinado Arnaiz,27,1.75,1.56,0.34,0.98,0.75
+158,David Turner,49,1.64,1.87,0.47,0.04,1.34
+159,Linda Campbell,56,0.1,1.49,1.21,0.81,0.05
+160,Graham Forrest,28,1.92,1.16,0.91,1.06,1.41
+161,Carlos Valderrama Gaya,33,1.92,1.92,0.11,1.36,0.65
+162,Angela Johnson,60,1.08,1.75,0.78,1.64,1.25
+163,Donald Bell,32,1.81,1.28,0.68,1.91,0.1
+164,Dr. Marian Jennings,37,1.8,1.65,1.02,1.86,1.71
+165,Francisco Jose del Pereira,48,1.18,1.08,1.24,0.52,1.24
+166,Marcelle Faure,35,1.69,0.37,0.32,0.36,1.27
+167,Eric Cooper,48,0.85,0.12,1.94,0.47,1.61
+168,Darren Faulkner,51,1.34,1.16,0.47,1.64,1.2
+169,Charles Edwards,58,0.53,1.85,1.65,1.18,0.64
+170,Lisa Henry,26,1.93,1.54,1.48,1.46,1.31
+171,Daniel Davis,53,0.07,1.0,1.58,0.69,0.64
+172,David Drake,53,1.32,1.32,1.83,1.53,0.28
+173,�douard Allain,56,0.36,0.95,1.35,1.43,0.75
+174,Kim Bibi,46,1.86,0.31,1.49,0.73,1.54
+175,Victoire Bailly-Fernandes,22,0.7,1.99,0.81,1.88,0.6
+176,Karen Santos,55,1.52,0.54,0.63,0.99,1.13
+177,Sandra Ba�os Serrano,41,0.74,0.43,1.31,0.38,1.51
+178,Christine Wallace,35,0.23,0.8,0.08,0.93,1.06
+179,Harrison Fox,56,0.9,1.37,1.99,0.54,0.96
+180,Amanda Thompson,38,1.91,0.35,1.29,0.87,0.01
+181,Ignacio Rocha,34,1.65,0.88,0.65,1.11,1.7
+182,Gabrielle Carpentier,36,1.63,1.3,0.02,0.58,0.29
+183,Justin Rich,44,0.28,1.27,1.17,0.05,0.48
+184,Sonia Noriega Pera,22,0.96,1.03,1.4,0.31,1.59
+185,Michael Lang,42,0.22,0.06,0.86,1.33,1.98
+186,Emma Long-Lloyd,25,0.91,0.1,0.59,0.67,1.35
+187,Andrew Harrison,35,0.41,0.9,1.02,0.98,0.68
+188,Carla Catal� Aller,63,1.87,0.27,0.16,0.5,0.67
+189,Jeffrey Allen,22,1.8,1.85,1.11,0.45,1.99
+190,Christiane Aubert,25,0.82,0.49,0.47,0.05,0.36
+191,Ricardo Valls Dur�n,22,0.87,1.33,0.2,0.07,0.08
+192,Bradley Mcneil,63,0.58,0.27,0.93,0.16,0.42
+193,Pilar Sierra Lumbreras,24,0.45,1.62,0.92,1.08,0.11
+194,Gabriel Lemonnier,29,1.55,0.67,1.81,1.51,0.43
+195,Julian Alonso Merino,60,1.45,1.55,0.15,1.86,1.64
+196,Zachary Barker-Taylor,41,0.18,1.33,0.3,0.7,1.06
+197,Luisa Blasco Villena,43,1.3,1.56,0.98,1.93,1.86
+198,Sandra Costa,59,1.56,1.04,0.93,1.81,1.56
+199,Stanley Warner,23,1.63,0.52,0.48,0.92,0.24
+200,Abigail Stephenson,41,0.4,1.36,0.79,1.8,1.9
+201,Christian Sandoval,28,0.52,1.26,0.08,1.48,0.47
+202,Robert Turner,55,0.53,0.56,1.36,1.38,0.56
+203,Maryse Aubert de Huet,50,0.58,1.4,0.02,0.47,1.13
+204,Amy Graham,61,0.76,0.79,1.89,0.22,0.33
+205,Joel Mcbride,53,0.19,1.01,0.43,1.9,1.05
+206,Timoth�e Lagarde,44,1.42,0.74,1.7,1.06,0.0
+207,Charles Goncalves,52,1.53,0.94,0.59,0.08,0.65
+208,Guillaume Gaillard,25,0.89,0.66,1.6,1.3,1.31
+209,Sophie Franklin-Olsen,38,1.79,0.39,1.11,0.79,0.99
+210,Steven Mitchell-Reynolds,39,1.0,1.23,1.74,1.9,0.51
+211,M�nica Vilar,59,1.16,1.85,0.09,1.35,0.4
+212,Juan Manuel Machado Iniesta,64,0.33,0.98,1.68,0.5,0.69
+213,Andr�s Arias Mateu,64,0.78,0.31,0.74,1.15,1.86
+214,Joshua Clark Jr.,19,0.07,1.13,1.23,0.33,0.84
+215,Marie Lewis,65,1.68,0.42,1.09,0.41,0.08
+216,Nicholas Fisher,41,1.81,0.17,0.3,0.55,0.75
+217,Ramon Sierra Ram�n,48,1.9,1.43,1.87,0.7,0.5
+218,Sara Cooksley,61,1.49,0.03,0.15,0.37,1.34
+219,�scar Taboada Cano,35,1.63,0.25,1.01,0.61,1.67
+220,Latoya Smith,56,1.32,1.17,0.01,1.81,0.13
+221,Jeremy Davis,45,0.77,1.31,0.52,1.34,0.75
+222,Angela Martin,32,1.91,0.64,1.09,1.79,1.2
+223,Warren Davis,32,1.53,0.71,0.0,1.27,1.7
+224,Mary Lammas,28,0.23,0.05,1.03,0.47,0.88
+225,Travis Hawkins,53,1.13,1.67,0.42,1.99,0.69
+226,Ad�le Guyon,48,1.53,0.98,0.65,0.01,0.55
+227,James Turner,21,1.7,1.02,1.8,1.54,1.17
+228,Margaret Lyons,18,0.63,0.33,1.35,0.61,1.7
+229,Lori Skinner,32,0.44,0.33,0.43,1.14,0.08
+230,Paige Norman,22,1.56,1.31,1.26,1.26,0.81
+231,Matthew Mitchell,44,1.67,0.29,0.3,1.22,0.58
+232,Vincent Warren,40,1.41,0.61,0.98,0.87,1.78
+233,Jose Luis Gasc�n Perez,24,0.44,1.07,1.34,1.57,1.54
+234,Michael Wall,25,1.02,0.14,1.33,1.91,0.41
+235,Bradley Williams,56,1.43,0.25,1.16,1.91,1.12
+236,Nicol�s Macias-Fuster,30,1.66,1.08,0.86,0.88,0.23
+237,Ms. Hollie Oliver,29,0.04,0.86,0.9,0.66,1.99
+238,Dr. Scott Dawson,27,1.24,0.22,1.48,0.92,0.93
+239,Chloe Davies,34,0.69,1.01,1.75,0.6,1.16
+240,Sheryl Richardson,34,1.39,0.72,1.3,1.96,0.31
+241,Kathryn Gray,46,1.48,0.75,0.29,1.02,1.59
+242,Richard Green,56,0.71,1.81,1.77,0.25,1.63
+243,Andr�s Juan Jos� Sacrist�n S�ez,28,1.65,0.13,0.07,0.88,1.11
+244,Lauren Harrison,53,0.19,1.43,0.13,1.59,1.94
+245,Tina Mullins,18,1.2,0.95,0.87,1.97,1.4
+246,John Flores,57,0.04,0.05,1.99,1.35,1.72
+247,Emilia Murillo Ortiz,22,1.81,1.24,0.22,1.59,1.67
+248,Mr. Jay Taylor,52,1.25,0.4,0.62,1.17,1.06
+249,Christine Lopes,57,0.38,0.83,0.71,0.31,1.43
+250,Rebecca Sullivan,20,0.46,0.85,0.26,0.5,0.05
+251,Vanessa Moore,47,0.91,0.79,0.13,1.0,0.73
+252,James MacPherson-Anderson,38,1.91,0.57,0.93,1.1,0.67
+253,Samantha Jackson,65,1.17,1.57,1.45,0.08,0.14
+254,Kerry Foster,20,0.64,0.75,0.59,1.45,0.99
+255,Tony Clark,62,1.58,0.96,0.56,0.0,0.44
+256,Esther Arenas,30,1.53,0.8,0.66,1.72,0.62
