@@ -61,8 +61,11 @@ public class Person {
 		return Math.sqrt(p.getInterestLevel(p.getId(), t.getName()) * ((attractiveness+intelligence+charisma)/3));
 	}
 	
-	private void judge(Person p, Topic t) {
-		
+	private void judge(Person pr, Topic t) {
+		double temp = listen(pr, t); Party p = new Party();
+		Impression i = new Impression(pr.getId(), temp, temp, temp);
+		this.impressions = new Impression[p.guests.length];
+		impressions[pr.getId()] = i;
 	}
 	
 	public Topic speak() {
