@@ -28,4 +28,14 @@ public class Music {
 		this.title = title;
 		this.duration = Duration.of((secDuration + minDuration*60), ChronoUnit.SECONDS);
 	}
+	
+	public String getArtist() {
+		return this.artist;
+	}
+	public String getTitle() {
+		return this.title;
+	}
+	public String getDuration() {
+		return this.duration.toString();
+	}
 }
