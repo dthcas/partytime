@@ -29,8 +29,8 @@ public class Topic {
 		
 		if(i<0) x = 0;
 		else if(i>9) x = 9;
-		System.out.println(this.statements[x].toString());
-		return this.statements[x];
+
+		return this.statements[x].toString();
 	}
 
 	public String getReply(int i) {
@@ -39,7 +39,7 @@ public class Topic {
 		if(i<0) x = 0;
 		else if(i>9) x = 9;
 		
-		return this.replies[x];
+		return this.replies[x].toString();
 	}
 	
 	public void setInterest(double i)
