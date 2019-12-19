@@ -24,6 +24,24 @@ public class Topic {
 		return interest;
 	}
 	
+	public String getStatement(int i) {
+		int x = i;
+		
+		if(i<0) x = 0;
+		else if(i>9) x = 9;
+		System.out.println(this.statements[x].toString());
+		return this.statements[x];
+	}
+
+	public String getReply(int i) {
+		int x = i;
+		
+		if(i<0) x = 0;
+		else if(i>9) x = 9;
+		
+		return this.replies[x];
+	}
+	
 	public void setInterest(double i)
 	{
 		interest = i;

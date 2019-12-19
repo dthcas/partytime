@@ -3,9 +3,9 @@ package partytime;
 
 import java.io.*;
 import java.time.Duration;
-import java.time.temporal.ChronoUnit;
+//import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.net.URL;
+//import java.net.URL;
 //import java.nio.charset.StandardCharsets;
 //import java.nio.file.Files;
 //import java.nio.file.Path;
@@ -13,9 +13,9 @@ import java.net.URL;
 
 public class Import {
 	
-	private static ArrayList<Person> allPeople;
-	private static ArrayList<Topic> allTopics;
-	private static ArrayList<Music> allMusic;
+	private ArrayList<Person> allPeople = new ArrayList<Person>();
+	private ArrayList<Topic> allTopics = new ArrayList<Topic>();
+	private ArrayList<Music> allMusic = new ArrayList<Music>();
 	
 	public ArrayList<Person> getAllPeople() {return this.allPeople;}
 	
@@ -46,25 +46,29 @@ public class Import {
 		//ArrayList<Person> allPeople = new ArrayList<>();
 		// read the first line from the text file
 		String line = br.readLine();
-		System.out.println("Reading line: "+line);
 		// temp person information variables
+		String p_name = "";
 		int p_id,p_age;
 		Double p_hm, p_em, p_at, p_in, p_ch;
 		int lineNum=1;
+		String[] values = new String[8];
 
 		// loop until all lines are read
 		while (line != null) {
 
 			if(lineNum==1) { lineNum++; line = br.readLine(); }// Ignore the first line and increment the line number
-			System.out.println("Reading line: "+line);
+			
+			// loop to turn all valid commas into tabs for proper input as some quotes will have commas
+			line = commaToTabSwitcher(line);
 			// use string.split to load a string array with the values from
 			// each line of the file, using a comma as the delimiter
-			String[] values = line.split(",");
-			if(values.length!=8) {
-				System.out.print("Please check input file "+fileName);
-				return;
+			values = line.split("\t");
+			if(values.length<8) {
+				System.out.println("Please check input file "+fileName);
+				break;
 			}
 			p_id = Integer.parseInt(values[0]);
+			p_name = values[1];
 			p_age = Integer.parseInt(values[2]);
 			p_hm = Double.parseDouble(values[3]);
 			p_em = Double.parseDouble(values[4]);
@@ -73,14 +77,16 @@ public class Import {
 			p_ch = Double.parseDouble(values[7]);
 
 			// adding this new person into ArrayList of all people
-			Import.allPeople.add(new Person(p_age,values[1],p_id,p_hm,p_em,p_at,p_in,p_ch));
+			this.allPeople.add(new Person(p_age,p_name,p_id,p_hm,p_em,p_at,p_in,p_ch));
 
 			// read next line before looping
 			// if end of file reached, line would be null
 			line = br.readLine();
+			lineNum++;
 		}
 
 		br.close(); // close the file reader
+		System.out.println("Person import completed with "+(lineNum-1)+" people added");
 		
 		return;
 	}
@@ -115,29 +121,34 @@ public class Import {
 
 		// make an arraylist to hold all people from the file.  This way we can 
 		// choose random people from the list instead of the same first few.
-		ArrayList<Topic> allTopics = new ArrayList<>();
+		//ArrayList<Topic> allTopics = new ArrayList<>();
 		// read the first line from the text file
 		String line = br.readLine();
 
 		// temp person information variables
 		String t_name;
-		String t_l1,t_l2,t_l3,t_l4,t_l5,t_l6,t_l7,t_l8,t_l9,t_l10;
-		String t_r1,t_r2,t_r3,t_r4,t_r5,t_r6,t_r7,t_r8,t_r9,t_r10;
+		//String t_l1,t_l2,t_l3,t_l4,t_l5,t_l6,t_l7,t_l8,t_l9,t_l10;
+		//String t_r1,t_r2,t_r3,t_r4,t_r5,t_r6,t_r7,t_r8,t_r9,t_r10;
 		int lineNum=1;
 		String [] t_statements = new String[10];
 		String [] t_replies = new String[10];
+		String [] values = new String[21];
 
 		// loop until all lines are read
 		while (line != null) {
 
-			if(lineNum==1) { br.readLine(); lineNum++; // Ignore the first line and increment the line number
+			if(lineNum==1) { line = br.readLine(); lineNum++; }// Ignore the first line and increment the line number
 
+			// turn all valid commas into tabs for proper input as some quotes will have commas
+			line = commaToTabSwitcher(line);
+			System.out.println("topic converted: "+line);
 			// use string.split to load a string array with the values from
 			// each line of the file, using a comma as the delimiter.
-			String[] values = line.split(",");
-			if(values.length!=11) {
-				System.out.print("Please check input file "+fileName);
-				return;
+			values = line.split("\t");
+			if(values.length<21) {
+				System.out.println("Please check input file "+fileName);
+				System.out.println("Incorrect length of "+values.length+" found for input string: "+line);
+				break;
 			}
 			t_name = values[0];
 			for(int i=0,j=0; i<20; i+=2,j++) {
@@ -146,11 +157,12 @@ public class Import {
 			}
 
 			// add this topic into the master list of all topics
-			Import.allTopics.add(new Topic(t_name,t_statements,t_replies));
+			this.allTopics.add(new Topic(t_name,t_statements,t_replies));
 
 			// read next line before looping
 			// if end of file reached, line would be null
 			line = br.readLine();
+			lineNum++;
 		}
 
 		br.close(); // close the file reader
@@ -195,35 +207,39 @@ public class Import {
 		String artist,title,dur;
 		Duration length = Duration.ZERO;
 		int lineNum=1;
+		String[] values = new String[3];
 	
 		// loop until all lines are read
 		while (line != null) {
 	
-			if(lineNum==1) { br.readLine(); lineNum++; } // Ignore the first line and increment the line number
+			if(lineNum==1) { line = br.readLine(); lineNum++; } // Ignore the first line and increment the line number
 	
+			line = commaToTabSwitcher(line);
+			
 			// use string.split to load a string array with the values from
 			// each line of the file, using a comma as the delimiter
-			String[] values = line.split(",");
+			values = line.split("\t");
 			String[] timer;
 			
 			if(values.length!=3) {
-				System.out.print("Please check input file "+fileName);
-				return;
+				System.out.println("Please check input file "+fileName);
+				break;
 			}
 			artist = values[0];
 			title = values[1];
-			dur = values[3];
+			dur = values[2];
 			timer = dur.split(":");
 			length = Duration.ZERO;
 			length.plusMinutes(Long.parseLong(timer[0]));
 			length.plusSeconds(Long.parseLong(timer[1]));
 	
 			// adding this new person into ArrayList of all people
-			Import.allMusic.add(new Music(artist,title,length));
+			this.allMusic.add(new Music(artist,title,length));
 	
 			// read next line before looping
 			// if end of file reached, line would be null
 			line = br.readLine();
+			lineNum++;
 		}
 	
 		br.close(); // close the file reader
@@ -251,6 +267,37 @@ public class Import {
 		}
 		
 		return mList;
+	}
+	
+	private String commaToTabSwitcher(String input) {
+		
+		// loop to turn all valid commas into tabs for proper input as some quotes will have commas
+		boolean quotemark = false;
+		String out = input;
+		for(int i=0; i<input.length(); i++) {
+			if(quotemark) {
+				if(input.charAt(i) == '\"') {
+					quotemark = false;
+					System.out.println("Close quote at index "+ Integer.toString(i));
+				}	
+			}
+			else {
+				if(input.charAt(i) == ',' && i<input.length()-1) { 
+					out = input.substring(0,i)+"\t"+input.substring(i+1);
+					System.out.println("One tab inserted at index "+Integer.toString(i));
+				}
+				else if(input.charAt(i) == ',') { 
+					out = input.substring(0,i)+"\t";
+					System.out.println("One final tab inserted at index "+Integer.toString(i));
+				}
+				else if(input.charAt(i) == '\"') {
+					quotemark = true;
+					System.out.println("Open quote at index "+ Integer.toString(i));
+				}
+			}
+		}
+		
+		return out;
 	}
 	
 }
