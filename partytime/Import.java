@@ -141,7 +141,7 @@ public class Import {
 
 			// turn all valid commas into tabs for proper input as some quotes will have commas
 			line = commaToTabSwitcher(line);
-			System.out.println("topic converted: "+line);
+			//System.out.println("topic converted: "+line);
 			// use string.split to load a string array with the values from
 			// each line of the file, using a comma as the delimiter.
 			values = line.split("\t");
@@ -166,6 +166,7 @@ public class Import {
 		}
 
 		br.close(); // close the file reader
+		System.out.println("Topic import completed with "+(lineNum-1)+" topics added");
 		
 		return;
 	}
@@ -221,9 +222,10 @@ public class Import {
 			values = line.split("\t");
 			String[] timer;
 			
-			if(values.length!=3) {
-				System.out.println("Please check input file "+fileName);
-				break;
+			if(values.length<3) {
+				//System.out.println("Please check input file "+fileName);
+				line = br.readLine();
+				continue;
 			}
 			artist = values[0];
 			title = values[1];
@@ -243,6 +245,7 @@ public class Import {
 		}
 	
 		br.close(); // close the file reader
+		System.out.println("Music import completed with "+(lineNum-1)+" songs added");
 		
 		return;
 	}
@@ -273,29 +276,36 @@ public class Import {
 		
 		// loop to turn all valid commas into tabs for proper input as some quotes will have commas
 		boolean quotemark = false;
-		String out = input;
+		String out = "";
 		for(int i=0; i<input.length(); i++) {
 			if(quotemark) {
 				if(input.charAt(i) == '\"') {
 					quotemark = false;
-					System.out.println("Close quote at index "+ Integer.toString(i));
-				}	
+					//System.out.println("Close quote at index "+ Integer.toString(i));
+					//System.out.println("New string: "+out);
+				}
+				else {
+					out = out+input.charAt(i);
+					//System.out.println("New string: "+out);
+				}
 			}
 			else {
-				if(input.charAt(i) == ',' && i<input.length()-1) { 
-					out = input.substring(0,i)+"\t"+input.substring(i+1);
-					System.out.println("One tab inserted at index "+Integer.toString(i));
-				}
-				else if(input.charAt(i) == ',') { 
-					out = input.substring(0,i)+"\t";
-					System.out.println("One final tab inserted at index "+Integer.toString(i));
+				if(input.charAt(i) == ',') { 
+					out = out+"\t";
+					//System.out.println("One tab inserted at index "+Integer.toString(i));
+					//System.out.println("New string: "+out);
 				}
 				else if(input.charAt(i) == '\"') {
 					quotemark = true;
-					System.out.println("Open quote at index "+ Integer.toString(i));
+					//System.out.println("Open quote at index "+ Integer.toString(i));
+				}
+				else {
+					out = out+input.charAt(i);
 				}
 			}
 		}
+		
+		//System.out.println("Refactored string: "+out);
 		
 		return out;
 	}
