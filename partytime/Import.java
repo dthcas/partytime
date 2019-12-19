@@ -154,6 +154,8 @@ public class Import {
 			for(int i=0,j=0; i<20; i+=2,j++) {
 				t_statements[j] = values[i+1];
 				t_replies[j] = values[i+2];
+				//System.out.println("Topic "+t_name+ " added statement: "+ values[i+1]);
+				//System.out.println("Topic "+t_name+ " added reply: "+ values[i+2]);
 			}
 
 			// add this topic into the master list of all topics
@@ -183,8 +185,8 @@ public class Import {
         
 		for(int i=0; i<num && i<at_size; i++) {
 			t_index = (int) (Math.random()*(at_size-1));
-			tList[i] = allTopics.get(t_index);
-			allTopics.remove(t_index);
+			tList[i] = cloneList.get(t_index);
+			cloneList.remove(t_index);
 			at_size--;
 		}
 		
