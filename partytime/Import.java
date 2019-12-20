@@ -161,8 +161,8 @@ public class Import {
 			}
 
 			// add this topic into the master list of all topics
-			this.allTopics.add(new Topic(t_name,t_statements,t_replies));
-
+			this.allTopics.add(new Topic(t_name,t_statements.clone(),t_replies.clone()));
+			System.out.println("New Topic Added: "+t_name);
 			// read next line before looping
 			// if end of file reached, line would be null
 			line = br.readLine();
@@ -185,7 +185,7 @@ public class Import {
 		int at_size = cloneList.size();
 		int t_index;
         
-		for(int i=0; i<num && i<at_size; i++) {
+		for(int i=0; i<num && at_size>0; i++) {
 			t_index = (int) (Math.random()*(at_size-1));
 			tList[i] = cloneList.get(t_index);
 			cloneList.remove(t_index);
