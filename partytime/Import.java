@@ -148,14 +148,16 @@ public class Import {
 			if(values.length<21) {
 				System.out.println("Please check input file "+fileName);
 				System.out.println("Incorrect length of "+values.length+" found for input string: "+line);
+				line = br.readLine();
+				lineNum++;
 				break;
 			}
 			t_name = values[0];
 			for(int i=0,j=0; i<20; i+=2,j++) {
 				t_statements[j] = values[i+1];
 				t_replies[j] = values[i+2];
-				//System.out.println("Topic "+t_name+ " added statement: "+ values[i+1]);
-				//System.out.println("Topic "+t_name+ " added reply: "+ values[i+2]);
+				System.out.println("Topic "+t_name+ " added statement: "+ t_statements[j]);
+				System.out.println("Topic "+t_name+ " added reply: "+ t_replies[j]);
 			}
 
 			// add this topic into the master list of all topics

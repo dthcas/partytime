@@ -25,19 +25,19 @@ public class Topic {
 	}
 	
 	public String getStatement(int i) {
-		int x = i;
+		int x = i-1;
 		
 		if(i<0) x = 0;
-		else if(i>9) x = 9;
+		else if(i>10) x = 9;
 
 		return this.statements[x].toString();
 	}
 
 	public String getReply(int i) {
-		int x = i;
+		int x = i-1;
 		
 		if(i<0) x = 0;
-		else if(i>9) x = 9;
+		else if(i>10) x = 9;
 		
 		return this.replies[x].toString();
 	}
