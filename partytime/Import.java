@@ -86,7 +86,7 @@ public class Import {
 		}
 
 		br.close(); // close the file reader
-		System.out.println("Person import completed with "+(lineNum-1)+" people added");
+		System.out.println("Person import completed with "+(lineNum-1)+" people added to master list");
 		
 		return;
 	}
@@ -156,13 +156,13 @@ public class Import {
 			for(int i=0,j=0; i<20; i+=2,j++) {
 				t_statements[j] = values[i+1];
 				t_replies[j] = values[i+2];
-				System.out.println("Topic "+t_name+ " added statement: "+ t_statements[j]);
-				System.out.println("Topic "+t_name+ " added reply: "+ t_replies[j]);
+				//System.out.println("Topic "+t_name+ " added statement: "+ t_statements[j]);
+				//System.out.println("Topic "+t_name+ " added reply: "+ t_replies[j]);
 			}
 
 			// add this topic into the master list of all topics
 			this.allTopics.add(new Topic(t_name,t_statements.clone(),t_replies.clone()));
-			System.out.println("New Topic Added: "+t_name);
+			//System.out.println("New Topic Added: "+t_name);
 			// read next line before looping
 			// if end of file reached, line would be null
 			line = br.readLine();
@@ -170,7 +170,7 @@ public class Import {
 		}
 
 		br.close(); // close the file reader
-		System.out.println("Topic import completed with "+(lineNum-1)+" topics added");
+		System.out.println("Topic import completed with "+(lineNum-1)+" topics added to master list");
 		
 		return;
 	}
@@ -249,7 +249,7 @@ public class Import {
 		}
 	
 		br.close(); // close the file reader
-		System.out.println("Music import completed with "+(lineNum-1)+" songs added");
+		System.out.println("Music import completed with "+(lineNum-1)+" songs added to master list");
 		
 		return;
 	}

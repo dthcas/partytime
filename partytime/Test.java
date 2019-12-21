@@ -19,17 +19,21 @@ public class Test {
 		t = t_test.length;
 		m = m_test.length;
 		
-		System.out.println("List of People");
+		System.out.println("\nList of People");
 		for(int i=0; i<p; i++) {
-			System.out.println("Person "+(i+1)+" Name: "+p_test[i].getName()+" Age: "+ p_test[i].getAge() + " Statement: Test later");	
+			System.out.println("Person "+(i+1)+" Name: "+p_test[i].getName()+" Age: "+ p_test[i].getAge() + " Charisma: " + p_test[i].getAttribute("charisma"));	
 		}
-		System.out.println("List of Topics");
+		System.out.println("\nList of Topic Statements");
 		for(int i=0; i<t; i++) {
-			System.out.println("Topic "+(i+1)+" Name: "+t_test[i].getName()+" Statement L"+(i+1)+": "+ t_test[i].getStatement(i%10));	
+			System.out.println("Topic "+(i+1)+": "+t_test[i].getName()+" Statement L"+(i+1)+": "+ t_test[i].getStatement(i%10));	
 		}
+		System.out.println("\nList of Topic Replies");
+		for(int i=0; i<t; i++) {
+			System.out.println("Topic "+(i+1)+": "+t_test[i].getName()+" Reply L"+(i+1)+": "+ t_test[i].getReply(i%10));	
+		}
+		System.out.println("\nList of Music");
 		for(int i=0; i<m; i++) {
-			System.out.println("List of Music");
-			System.out.println("Song "+(i+1)+" Name: "+m_test[i].getTitle()+" Artist: "+ m_test[i].getArtist() + " Duration: " + m_test[i].getDuration());	
+			System.out.println("Song "+(i+1)+": "+m_test[i].getTitle()+" by "+ m_test[i].getArtist() + " Duration: " + m_test[i].getDuration());	
 		}
 		
 		
