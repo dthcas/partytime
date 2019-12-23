@@ -1,5 +1,8 @@
+/* Import.java will allow a class to import various data from CSV files to allow for people, conversations and topics
+// To use: create an Index object and use the public methods to pull data as needed.
+*/
+
 package partytime;
-/* Import.java will allow a class to import various data from CSV files to allow for people, conversations and topics */
 
 import java.io.*;
 import java.time.Duration;
