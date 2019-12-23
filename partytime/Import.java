@@ -38,7 +38,7 @@ public class Import {
 		
 	}
 	
-	public void getPeopleFromCSV(String fileName) throws IOException {
+	private void getPeopleFromCSV(String fileName) throws IOException {
 		
 		// find the path to the file and create an instance of BufferedReader
 		BufferedReader br = new BufferedReader(new FileReader(fileName));
