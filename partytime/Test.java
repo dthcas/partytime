@@ -8,7 +8,7 @@ public class Test {
 
 		Import data = new Import();
 		
-		int p = 6;
+		int p = 20;
 		int t = 4;
 		int m = 10;
 		Person[] p_test = data.getPeople(p);
@@ -19,9 +19,20 @@ public class Test {
 		t = t_test.length;
 		m = m_test.length;
 		
+		Topic[] p_topics;
+		String fname;
+		
 		System.out.println("\nList of People");
 		for(int i=0; i<p; i++) {
-			System.out.println("Person "+(i+1)+" Name: "+p_test[i].getName()+" Age: "+ p_test[i].getAge() + " Charisma: " + p_test[i].getAttribute("charisma"));	
+			System.out.println("Person "+(i+1)+" Name: "+p_test[i].getName()+" Age: "+ p_test[i].getAge() + " Charisma: " + p_test[i].getAttribute("charisma"));
+			fname = p_test[i].getName().substring(0, p_test[i].getName().indexOf(" "));
+			System.out.print(fname+" can discuss topics ");
+			p_topics = p_test[i].getTopics();
+			for(int j=0; j<p_topics.length-1; j++) {
+				if(j>0) System.out.print(", ");
+				System.out.print(p_topics[j].getName());
+			}
+			System.out.print(" and "+p_topics[p_topics.length-1].getName()+"\n");
 		}
 		System.out.println("\nList of Topic Statements");
 		for(int i=0; i<t; i++) {
