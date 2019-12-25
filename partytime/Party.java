@@ -8,24 +8,28 @@ public class Party {
 	double end_time;
 	int attendees = 0;
 	int max;
+	int songs;
 	Person [] guests;
 	Conversation [] conversation;
-	Music [] playlist;
+	Playlist playlist;
 	
 	public void startParty() {
 		Import ip = new Import();
 		System.out.print("What is the maximum amount of people that can be in the party?");
 		Scanner scan = new Scanner(System.in);
-		max = scan.nextInt(); Person[] guests = new Person[max];
-		ip.getPeopleFromCSV("Imports/people.csv"); ArrayList<Person> tmp = ip.getAllPeople();
-		for(int i=0; i<max ;i++) {
-			attendees+=1; guests[i] = tmp.get(i);
-		}
+		max = scan.nextInt();
+		System.out.print("How many songs will the party go for?");
+		songs = scan.nextInt();
+		
+		guests = ip.getPeople(max);
+		playlist = new Playlist(ip.getPlaylist(songs));
+		
 		System.out.print("The party has started");
 	}
 	
 	private void changeMusic() {
-		Playlist pl = new Playlist(); Music cur_song = pl.getNextSong();
+		Music cur_song = this.playlist.getNextSong();
+		System.out.println(cur_song.getTitle()+" by "+cur_song.getArtist()+" is now playing");
 	}
 	
 	public int getGuests() {
