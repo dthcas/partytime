@@ -29,8 +29,8 @@ public class Import {
 		File mdir = new File("partytime/imports/music.csv");
 		
 		try {
-			getPeopleFromCSV(pdir.getAbsolutePath());
 			getTopicsFromCSV(tdir.getAbsolutePath());
+			getPeopleFromCSV(pdir.getAbsolutePath());
 			getMusicFromCSV(mdir.getAbsolutePath());
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -50,6 +50,7 @@ public class Import {
 		// read the first line from the text file
 		String line = br.readLine();
 		// temp person information variables
+		Person p;
 		String p_name = "";
 		int p_id,p_age;
 		Double p_hm, p_em, p_at, p_in, p_ch;
@@ -80,7 +81,9 @@ public class Import {
 			p_ch = Double.parseDouble(values[7]);
 
 			// adding this new person into ArrayList of all people
-			this.allPeople.add(new Person(p_age,p_name,p_id,p_hm,p_em,p_at,p_in,p_ch));
+			p = new Person(p_age,p_name,p_id,p_hm,p_em,p_at,p_in,p_ch);
+			p.setTopics(this.getTopics(3));
+			this.allPeople.add(p);
 
 			// read next line before looping
 			// if end of file reached, line would be null
