@@ -29,7 +29,19 @@ public class Person {
 	
 	public void setAge(int a) {this.age = a;}
 	public void setName(String n) {this.name = n;}
-
+	public void setTopics(Topic[] t) { this.topics = t; }
+	public void addTopic(Topic t) {
+		
+		System.out.println("Can't add "+t.getName()+" just yet, functionality to come");
+		// check if topic exists.. if not continue
+		// get topic list length
+		// create new array with that length
+		// assign old values
+		// add new value t
+		// assign new topic list to topics
+		
+	}
+	
 	public double getInterestLevel(int id, String name) {
 		Party p = new Party();
 		int lenI = this.impressions.length; int lenP = p.guests.length - 1;
