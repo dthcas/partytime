@@ -37,33 +37,49 @@ public class Party {
 	}
 	
 	public void addGuest(Person p) {
-		guests[attendees]=p;
+		if (attendees<max) {
+			guests[attendees]=p;
+		}
+		else {
+			System.out.println("Opps, there is too many people in the party");
+		}
 	}
 	
 	public void conversation() {
 		//p1
 		boolean p1inconversation = true;
+		int p1;
+		int p2;
 		while (p1inconversation==true) {
-			int p1 = (int )(Math.random() * attendees + 1);
+			p1 = (int)(Math.random() * attendees + 1);
 			p1inconversation = false;
 			for (int i=0; i<attendees; i++) {
 				if (guests[p1].equals(guests[i])) {
 					p1inconversation = true;
 				}
+				else {
+					p1inconversation = false;
+				}
 			}
 		}
+		Person person1 = guests[p1];
 		//p2
 		boolean p2inconversation = true;
 		while (p2inconversation==true) {
-			int p2 = (int )(Math.random() * attendees + 1);
+			p2 = (int)(Math.random() * attendees + 1);
 			p2inconversation = false;
 			for (int i=0; i<attendees; i++) {
 				if (guests[p2].equals(guests[i])) {
 					p2inconversation = true;
 				}
+				else {
+					p2inconversation = false;
+				}
 			}
 		}
+		Person person2 = guests[p2];
 		//Start conversation
+		Conversation c1 = new Conversation(person1 , person2);
 	}
 	
 	public void endParty() {
