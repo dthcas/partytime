@@ -33,7 +33,7 @@ public class Test {
 				if(j>0) System.out.print(", ");
 				System.out.printf(p_topics[j].getName()+" ("+"%.2f"+")",p_topics[j].getInterest());
 			}
-			System.out.print(" and "+p_topics[p_topics.length-1].getName()+"\n");
+			System.out.printf(" and "+p_topics[p_topics.length-1].getName()+" ("+"%.2f"+")"+"\n",p_topics[p_topics.length-1].getInterest());
 			System.out.println(fname+" says \""+p_test[i].speak().getStatement((int)(Math.random()*10))+"\"");
 		}
 		System.out.println("\nList of Topic Statements");
