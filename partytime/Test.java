@@ -31,7 +31,7 @@ public class Test {
 			p_topics = p_test[i].getTopics();
 			for(int j=0; j<p_topics.length-1; j++) {
 				if(j>0) System.out.print(", ");
-				System.out.print(p_topics[j].getName()+" ("+p_topics[j].getInterest()+") ");
+				System.out.printf(p_topics[j].getName()+" ("+"%.2f"+")",p_topics[j].getInterest());
 			}
 			System.out.print(" and "+p_topics[p_topics.length-1].getName()+"\n");
 			System.out.println(fname+" says \""+p_test[i].speak().getStatement((int)(Math.random()*10))+"\"");
