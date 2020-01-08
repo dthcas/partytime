@@ -7,6 +7,11 @@ public class Topic {
 	private String [] statements; // List of statements about topic
 	private String [] replies; // List of responses
 	
+	public Topic(Topic t) { this.name = t.name; this.interest = t.getInterest();
+							this.importance = t.getImportance(); 
+							this.statements = t.statements;
+							this.replies = t.replies;
+	}
 	public Topic(String t_name, String[] t_statements, String[] t_replies) {
 		
 		name = t_name;
@@ -22,6 +27,11 @@ public class Topic {
 	public double getInterest()
 	{
 		return interest;
+	}
+	
+	public double getImportance()
+	{
+		return importance;
 	}
 	
 	public String getStatement(int i) {

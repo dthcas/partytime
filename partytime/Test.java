@@ -22,6 +22,7 @@ public class Test {
 		
 		Topic[] p_topics;
 		String fname;
+		Topic speakTopic;
 		
 		System.out.println("\nList of People");
 		for(int i=0; i<p; i++) {
@@ -34,7 +35,8 @@ public class Test {
 				System.out.printf(p_topics[j].getName()+" ("+"%.2f"+")",p_topics[j].getInterest());
 			}
 			System.out.printf(" and "+p_topics[p_topics.length-1].getName()+" ("+"%.2f"+")"+"\n",p_topics[p_topics.length-1].getInterest());
-			System.out.println(fname+" says \""+p_test[i].speak().getStatement((int)(Math.random()*10))+"\"");
+			speakTopic = p_test[i].speak();
+			System.out.println(fname+" says \""+speakTopic.getStatement((int)(speakTopic.getInterest()*10))+"\"");
 		}
 		System.out.println("\nList of Topic Statements");
 		for(int i=0; i<t; i++) {

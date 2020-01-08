@@ -29,17 +29,38 @@ public class Person {
 	
 	public void setAge(int a) {this.age = a;}
 	public void setName(String n) {this.name = n;}
-	public void setTopics(Topic[] t) { this.topics = t; }
+	public void setTopics(Topic[] t) { 
+		int tl_len = t.length;
+		Topic[] newTopicList = new Topic[tl_len];
+		for(int i=0; i<tl_len;i++) {
+			newTopicList[i] = new Topic(t[i]);
+		}
+		this.topics = newTopicList;
+	}
 	public void addTopic(Topic t) {
 		
-		System.out.println("Can't add "+t.getName()+" just yet, functionality to come");
-		// check if topic exists.. if not continue
-		// get topic list length
-		// create new array with that length
-		// assign old values
+		// Get current topic list length
+		int tl_len = this.topics.length;
+		// Check if this topic already exists
+		for(int i=0; i<tl_len;i++) {
+			if(this.topics[i].getName().equals(t.getName())) {
+				System.out.println("Topic "+t.getName()+" already exists");
+				return;
+			}
+		}	
+		// create new array with current length+1 for new topic
+		// we need to ensure new to avoid referencing the same topic
+		// object over and over for every person
+		Topic[] newTopicList = new Topic[tl_len+1];
+		// assign current values to new list
+		for(int i=0; i<tl_len; i++) {
+			newTopicList[i] = this.getTopics()[i];
+		}
 		// add new value t
+		newTopicList[tl_len] = new Topic(t);
 		// assign new topic list to topics
-		
+		this.topics = newTopicList;
+		return;	
 	}
 	
 	public double getInterestLevel(int id, String name) {
