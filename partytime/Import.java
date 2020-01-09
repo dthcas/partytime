@@ -5,6 +5,7 @@
 package partytime;
 
 import java.io.*;
+import java.text.DecimalFormat;
 import java.time.Duration;
 //import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -84,7 +85,9 @@ public class Import {
 			p = new Person(p_age,p_name,p_id,p_hm,p_em,p_at,p_in,p_ch);
 			p.setTopics(this.getTopics(3));
 			this.allPeople.add(p);
-
+			for(int j=0; j<p.getTopics().length; j++) {
+				p.getTopics()[j].setInterest(Math.random());
+			}
 			// read next line before looping
 			// if end of file reached, line would be null
 			line = br.readLine();
@@ -242,8 +245,9 @@ public class Import {
 			dur = values[2];
 			timer = dur.split(":");
 			length = Duration.ZERO;
-			length.plusMinutes(Long.parseLong(timer[0]));
-			length.plusSeconds(Long.parseLong(timer[1]));
+			//Add minutes and seconds to the length of the track
+			length = length.plusMinutes(Long.parseLong(timer[0]));
+			length = length.plusSeconds(Long.parseLong(timer[1]));
 	
 			// adding this new person into ArrayList of all people
 			this.allMusic.add(new Music(artist,title,length));
