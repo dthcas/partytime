@@ -165,16 +165,16 @@ public class Conversation {
 			
 			if(interestp2>1.8) {
 				System.out.print(ppp2.getName()+" love "+ppp1.getName());
-				System.out.print(ppp1.getName()+" is friend with "+ppp2.getName());
-			}
-			else if(interestp2>1.2) {
-				System.out.print(ppp2.getName()+" found "+ppp1.getName()+" quite attractive");
-				System.out.print(ppp1.getName()+" is friend with "+ppp2.getName());
-			}
-			else if(interestp2>0.6) {
-				
-				System.out.print(ppp2.getName()+" is friend with "+ppp1.getName());
-			}
+			System.out.print(ppp1.getName()+" is friend with "+ppp2.getName());
+		}
+		else if(interestp2>1.2) {
+			System.out.print(ppp2.getName()+" found "+ppp1.getName()+" quite attractive");
+			System.out.print(ppp1.getName()+" is friend with "+ppp2.getName());
+		}
+		else if(interestp2>0.6) {
+
+			System.out.print(ppp2.getName()+" is friend with "+ppp1.getName());
+		}
 			else if(interestp2>0.0) {
 				System.out.print(ppp1.getName()+" is friend with "+ppp2.getName());
 				System.out.print(ppp2.getName()+" really hates "+ppp1.getName());
