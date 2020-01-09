@@ -36,6 +36,11 @@ public class Music {
 		return this.title;
 	}
 	public String getDuration() {
-		return this.duration.getSeconds()+" sec";
+		long mins, secs;
+		String fill = "";
+		mins = (int) this.duration.getSeconds()/60;
+		secs = this.duration.getSeconds()%60;
+		if(secs<10) fill = "0";
+		return mins+":"+fill+secs;
 	}
 }
