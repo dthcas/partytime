@@ -10,8 +10,9 @@ public class Test {
 		Import data = new Import();
 		
 		int p = 20;
-		int t = 4;
+		int t = 7;
 		int m = 10;
+
 		Person[] p_test = data.getPeople(p);
 		Topic[] t_test = data.getTopics(t);
 		Music[] m_test = data.getPlaylist(m);
