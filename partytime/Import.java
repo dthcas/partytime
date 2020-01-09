@@ -195,7 +195,7 @@ public class Import {
 		int t_index;
         
 		for(int i=0; i<num && at_size>0; i++) {
-			t_index = (int) (Math.random()*(at_size-1));
+			t_index = (int) (Math.random()*(at_size));
 			tList[i] = cloneList.get(t_index);
 			cloneList.remove(t_index);
 			at_size--;
