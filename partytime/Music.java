@@ -36,6 +36,6 @@ public class Music {
 		return this.title;
 	}
 	public String getDuration() {
-		return String.valueOf(this.duration.getSeconds())+" sec";
+		return this.duration.getSeconds()+" sec";
 	}
 }
