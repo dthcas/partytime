@@ -42,79 +42,57 @@ public class Conversation {
 	}
 	private static String begindecides(Person pp1,Person pp2) {
 		String impression;
-		if(pp1.getAttribute("attractiveness")>1.8) {
+		if(pp2.getAttribute("attractiveness")>1.8) {
 			impression=pp1.getName()+" fell in love with "+pp2.getName();
 		}
-		else if(pp1.getAttribute("attractiveness")>1.4) {
+		else if(pp2.getAttribute("attractiveness")>1.4) {
 			impression=pp1.getName()+" finds "+pp2.getName()+" quite attractive";
 		}
-		else if(pp1.getAttribute("attractiveness")>1.0) {
+		else if(pp2.getAttribute("attractiveness")>1.0) {
 			impression=pp1.getName()+" has no feeling about "+pp2.getName();
 		}
-		else if(pp1.getAttribute("attractiveness")>0.5) {
-			impression=pp1.getName()+" has bad feeling about "+pp2.getName();
+		else if(pp2.getAttribute("attractiveness")>0.5) {
+			impression=pp1.getName()+" finds "+pp2.getName() + " quite unattractive";
 		}
 		else  {
-			impression=pp1.getName()+" really dislikes "+pp2.getName();
+			impression=pp2.getName()+" is creeped out by "+pp2.getName();
 		}
 		return impression;
 	}
 	//make it neater
-	private static void middledecides(int r, Person p1, Person p2) {
+	private void middledecides(Person p1, Person p2) {
 		double interests;
 		double interests2;
-		if(r>1) {
-			System.out.println(p1.getName()+" talks about "+p1.speak().getName());
-			interests=p2.listen(p1,p1.speak());
-			p2.setImpression(p1.getId(),interests);
-			if(interests>1.2) {
-				System.out.println(p2.getName()+" says he likes "+prompt(p1).getName()+" too.");//the pronoun still need to change
-			}
-			else if(interests>0.8) {
-				System.out.println(p2.getName()+" pretend to listen but got distracted by something.");
-			}
-			else {
-				System.out.println(p2.getName()+" yawns");
-			}
-			System.out.println(p2.getName()+" talks about "+p2.speak().getName());
-			interests2=p1.listen(p2,p2.speak());
-			p1.setImpression(p2.getId(),interests);
-			if(interests>1.2) {
-				System.out.println(p2.getName()+" says he likes "+prompt(p1).getName()+" too");//the pronoun still need to change
-			}
-			else if(interests>0.8) {
-				System.out.println(p2.getName()+" pretend to listen but got distracted by something.");
-			}
-			else {
-				System.out.println(p2.getName()+" yawns");
-			}
+		Topic p1t;	// the topic p1 talks about
+		Topic p2t;	// the topic p2 talks about
+		
+		p1t = p1.speak();
+		System.out.println(p1.getName()+" talks about "+p1t.getName());
+		System.out.println(p1.getName()+" says, \"" + p1t.getStatement(p1t.getInterest()) + "\"");
+		System.out.println(p2.getName()+" replies, \"" + p2.reply(p1t) + "\"");
+		interests = p2.listen(p1, p1t);
+		if(interests>1.2) {
+			System.out.println(p2.getName()+"  likes "+p1t.getName()+" too.");//the pronoun still need to change
+		}
+		else if(interests>0.8) {
+			System.out.println(p2.getName()+" pretends to listen but got distracted by something.");
 		}
 		else {
-			System.out.println(p2.getName()+" talks about "+p2.speak().getName());
-			interests=p1.listen(p2,p2.speak());
-			p1.setImpression(p2.getId(),interests);
-			if(interests>1.2) {
-				System.out.println(p2.getName()+" says he likes "+prompt(p1).getName()+" too");//the pronoun still need to change
-			}
-			else if(interests>0.8) {
-				System.out.println(p2.getName()+" pretend to listen but got distracted by something.");
-			}
-			else {
-				System.out.println(p2.getName()+" yawns");
-			}
-			System.out.println(p1.getName()+" talks about "+p1.speak().getName());
-			interests2=p2.listen(p1,p1.speak());
-			p2.setImpression(p1.getId(),interests2);
-			if(interests2>1.2) {
-				System.out.println(p2.getName()+" says he likes "+prompt(p1).getName()+" too.");//the pronoun still need to change
-			}
-			else if(interests2>0.8) {
-				System.out.println(p2.getName()+" pretend to listen but got distracted by something.");
-			}
-			else {
-				System.out.println(p2.getName()+" yawns");
-			}
+			System.out.println(p2.getName()+" yawns");
 		}
+		System.out.println(p2.getName()+" talks about "+p2.speak().getName());
+		interests2=p1.listen(p2,p2.speak());
+		p1.setImpression(p2.getId(),interests);
+		if(interests>1.2) {
+			System.out.println(p2.getName()+" says he likes "+prompt(p1).getName()+" too");//the pronoun still need to change
+		}
+		else if(interests>0.8) {
+			System.out.println(p2.getName()+" pretend to listen but got distracted by something.");
+		}
+		else {
+			System.out.println(p2.getName()+" yawns");
+		}
+		
 	}
 	
 	
@@ -209,7 +187,8 @@ public class Conversation {
 
 		//the upper tells their interests when there are no conversation begins
 		//the down tells who start the conversation and who did the another likes it
-		middledecides(rand, p1, p2);	
+		middledecides(p1, p2);
+		middledecides(p2,p1);
 	}
 	
 	public void endConversation() {

@@ -109,6 +109,34 @@ public class Person {
 		return topics[(int) Math.random()*(topics.length-1)];
 	}
 	
+	public String reply(Topic t) {
+		String rs = "";
+		Topic rt = null;
+		
+		while(rt==null) {
+			for(int i=0; i<this.topics.length; i++) {
+				if(this.topics[i].getName().equals(t.getName())) {
+					rt = this.topics[i];
+				}
+			}
+		
+			if(rt==null) { 
+				this.addTopic(t);
+				this.setInterestLevel(t.getName(),(int) Math.random()*10);
+			}
+		}
+		
+		rs = rt.getReply(rt.getInterest());
+		
+		return rs;
+	}
+	
+	public void setInterestLevel(String name, int interest) {
+		
+		int resT = Person_Util.linearSearchTopic(this.topics, name);
+		this.getTopics()[resT].setInterest(interest);
+	}
+	
 	public void updateInterestLevel(String name, double tk, boolean upOrDown) {
 		int resT = Person_Util.linearSearchTopic(this.topics, name);
 		if (upOrDown) {this.getTopics()[resT].setInterestRatio(1 + tk);}

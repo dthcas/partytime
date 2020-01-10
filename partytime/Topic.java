@@ -2,7 +2,7 @@ package partytime;
 
 public class Topic {
 	private String name;
-	private double interest;
+	private int interest;
 	private double importance;
 	private String [] statements; // List of statements about topic
 	private String [] replies; // List of responses
@@ -24,7 +24,7 @@ public class Topic {
 		return name;
 	}
 	
-	public double getInterest()
+	public int getInterest()
 	{
 		return interest;
 	}
@@ -56,14 +56,14 @@ public class Topic {
 		return this.replies[x].toString();
 	}
 	
-	public void setInterest(double i)
+	public void setInterest(int i)
 	{
-		interest = i;
+		this.interest = i;
 	}
 	
 	public void setImportance(double i)
 	{
-		importance = i;
+		this.importance = i;
 	}
 	
 	// Dependency for Person.java

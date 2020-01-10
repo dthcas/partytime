@@ -86,7 +86,7 @@ public class Import {
 			p.setTopics(this.getTopics(3));
 			this.allPeople.add(p);
 			for(int j=0; j<p.getTopics().length; j++) {
-				p.getTopics()[j].setInterest(Math.random());
+				p.getTopics()[j].setInterest((int)Math.random()*10);
 			}
 			// read next line before looping
 			// if end of file reached, line would be null
