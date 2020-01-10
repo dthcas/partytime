@@ -95,7 +95,7 @@ public class Import {
 		}
 
 		br.close(); // close the file reader
-		System.out.println("Person import completed with "+(lineNum-1)+" people added to master list");
+		//System.out.println("Person import completed with "+(lineNum-1)+" people added to master list");
 		
 		return;
 	}
@@ -179,7 +179,7 @@ public class Import {
 		}
 
 		br.close(); // close the file reader
-		System.out.println("Topic import completed with "+(lineNum-1)+" topics added to master list");
+		//System.out.println("Topic import completed with "+(lineNum-1)+" topics added to master list");
 		
 		return;
 	}
@@ -259,7 +259,7 @@ public class Import {
 		}
 	
 		br.close(); // close the file reader
-		System.out.println("Music import completed with "+(lineNum-1)+" songs added to master list");
+		//System.out.println("Music import completed with "+(lineNum-1)+" songs added to master list");
 		
 		return;
 	}
