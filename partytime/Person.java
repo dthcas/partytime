@@ -10,6 +10,7 @@ public class Person {
 	private int age; private String name; private final int id;
 	private final double humor, empathy, attractiveness, intelligence, charisma;
 	private Impression[] impressions; private Topic[] topics;
+	private boolean inConversation = false;
 	
 	public Person(int age, String name, int id, double hm, double em, double at, double in, double ch) {
 		this.age = age; this.name = name; this.id = id;
@@ -26,6 +27,9 @@ public class Person {
 	public int getId() {return this.id;}
 	public Impression[] getImpressions() {return this.impressions;}
 	public Topic[] getTopics() {return this.topics;}
+	public boolean isInConversation() { return this.inConversation; }
+	public void startConversation() { this.inConversation = true; }
+	public void endConversation() { this.inConversation = false; }
 	
 	public void setAge(int a) {this.age = a;}
 	public void setName(String n) {this.name = n;}

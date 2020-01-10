@@ -34,13 +34,17 @@ public class Impression {
 		chemistry = c;
 	}
 	
-	public double getChemistry(Person p1, Person p2) {
+	public double getChemistry() {
 		
-		return 0.0;
+		return this.chemistry;
 	}
 	
-	public double getImpression(Person person1, Person person2) {
-		overallimpression = (interesting + attractive + kind + getChemistry(person1,person2))/4;
+	public int getId() {
+		return this.id;
+	}
+	
+	public double getImpression() {
+		this.overallimpression = (this.interesting + this.attractive + this.kind + this.chemistry)/4;
 		return overallimpression;
 	}
 	

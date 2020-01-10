@@ -30,7 +30,6 @@ public class Conversation {
 		p2 = b;
 		ID=idd;
 
-		topics = new Topic[5];
 	}
 	public int getID() {
 		return ID;
@@ -47,16 +46,16 @@ public class Conversation {
 			impression=pp1.getName()+" fell in love with "+pp2.getName();
 		}
 		else if(pp1.getAttribute("attractiveness")>1.4) {
-			impression=pp1.getName()+" finds"+pp2.getName()+"quite attractive";
+			impression=pp1.getName()+" finds "+pp2.getName()+" quite attractive";
 		}
 		else if(pp1.getAttribute("attractiveness")>1.0) {
-			impression=pp1.getName()+"has a no feeling about"+pp2.getName();
+			impression=pp1.getName()+" has no feeling about "+pp2.getName();
 		}
 		else if(pp1.getAttribute("attractiveness")>0.5) {
-			impression=pp1.getName()+"has bad feeling about"+pp2.getName();
+			impression=pp1.getName()+" has bad feeling about "+pp2.getName();
 		}
 		else  {
-			impression=pp1.getName()+"really dislike"+pp2.getName();
+			impression=pp1.getName()+" really dislikes "+pp2.getName();
 		}
 		return impression;
 	}
@@ -92,12 +91,12 @@ public class Conversation {
 		}
 		else {
 			System.out.println(p2.getName()+" talks about "+p2.speak().getName());
-			interests2=p1.listen(p2,p2.speak());
+			interests=p1.listen(p2,p2.speak());
 			p1.setImpression(p2.getId(),interests);
-			if(interests2>1.2) {
+			if(interests>1.2) {
 				System.out.println(p2.getName()+" says he likes "+prompt(p1).getName()+" too");//the pronoun still need to change
 			}
-			else if(interests2>0.8) {
+			else if(interests>0.8) {
 				System.out.println(p2.getName()+" pretend to listen but got distracted by something.");
 			}
 			else {

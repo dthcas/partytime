@@ -21,4 +21,8 @@ public class Playlist {
 		   return null;
 	   }
    }
+   
+   public int getSize() {
+	   return this.playlist.length;
+   }
 }
