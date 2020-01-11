@@ -42,16 +42,21 @@ public class Conversation {
 	}
 	private static String begindecides(Person pp1,Person pp2) {
 		String impression;
-		if(pp2.getAttribute("attractiveness")>1.8) {
+		double p2a = pp2.getAttribute("attractiveness");
+		
+		if(p2a>1.8) {
 			impression=pp1.getName()+" fell in love with "+pp2.getName();
 		}
-		else if(pp2.getAttribute("attractiveness")>1.4) {
+		else if(p2a>1.2) {
+			impression = pp1.getName() + " thinks " + pp2.getName() + " is dreamy";
+		}
+		else if(p2a>0.8) {
 			impression=pp1.getName()+" finds "+pp2.getName()+" quite attractive";
 		}
-		else if(pp2.getAttribute("attractiveness")>1.0) {
+		else if(p2a>0.5) {
 			impression=pp1.getName()+" has no feeling about "+pp2.getName();
 		}
-		else if(pp2.getAttribute("attractiveness")>0.5) {
+		else if(p2a>0.3) {
 			impression=pp1.getName()+" finds "+pp2.getName() + " quite unattractive";
 		}
 		else  {
@@ -84,37 +89,16 @@ public class Conversation {
 		
 		
 		if(p2ni>p2ci+0.1) {
-			System.out.println(p2n+"  likes "+p1n+" more after that conversation.");//the pronoun still need to change
+			System.out.println(p2n+" likes "+p1n+" more after that conversation.");//the pronoun still need to change
 		}
 		else if(p2ni > p2ci) {
-			System.out.println(p2n + "feels a little better about " + p1n + " following their talk");
+			System.out.println(p2n + " feels a little better about " + p1n + " following their talk");
 		}
 		else if(p2ni > p2ci-0.1) {
-			System.out.println(p2n + "lost some regard for " + p1n + "after talking");
+			System.out.println(p2n + " lost some regard for " + p1n + " after talking");
 		}
 		else {
 			System.out.println(p2n +" likes " + p1n + " much less after that conversation");
-		}
-		
-		p2t = p2.speak();
-		p1i = p1.listen(p2, p2t);
-		System.out.println(p2.getName()+" talks about "+p2.speak().getName());
-		System.out.println(p2.getName()+" says, \"" + p2t.getStatement(p2t.getInterest()) + "\"");
-		System.out.println(p1.getName()+" replies, \"" + p1.reply(p2t) + "\"");
-		p1ni = p1ci*p1i*p2.getAttribute("charisma");
-		p1.setImpression(p2id, (p1ni+p1ci)/2);
-		
-		if(p1ni>p1ci+0.1) {
-			System.out.println(p1n+"  likes "+p2n+" more after that conversation.");//the pronoun still need to change
-		}
-		else if(p1ni > p1ci) {
-			System.out.println(p1n + "feels a little better about " + p2n + " following their talk");
-		}
-		else if(p1ni > p1ci-0.1) {
-			System.out.println(p1n + "lost some regard for " + p2n + "after talking");
-		}
-		else {
-			System.out.println(p1n +" likes " + p2n + " much less after that conversation");
 		}
 		
 	}
@@ -128,75 +112,75 @@ public class Conversation {
 		if(interestp1>1.8) {
 			
 			if(interestp2>1.8) {
-				System.out.print(ppp1.getName()+" and "+ppp2.getName()+" love each other");
+				System.out.println(ppp1.getName()+" and "+ppp2.getName()+" love each other");
 			}
 			else if(interestp2>1.2) {
-				System.out.print(ppp1.getName()+" love "+ppp2.getName());
-				System.out.print(ppp2.getName()+" found "+ppp1.getName()+" quite attractive");
+				System.out.println(ppp1.getName()+" love "+ppp2.getName());
+				System.out.println(ppp2.getName()+" found "+ppp1.getName()+" quite attractive");
 			}
 			else if(interestp2>0.6) {
-				System.out.print(ppp1.getName()+" love "+ppp2.getName());
-				System.out.print(ppp2.getName()+" is friend with "+ppp1.getName());
+				System.out.println(ppp1.getName()+" love "+ppp2.getName());
+				System.out.println(ppp2.getName()+" is friend with "+ppp1.getName());
 			}
 			else if(interestp2>0.0) {
-				System.out.print(ppp1.getName()+" love "+ppp2.getName());
-				System.out.print(ppp2.getName()+" really hates "+ppp1.getName());
+				System.out.println(ppp1.getName()+" love "+ppp2.getName());
+				System.out.println(ppp2.getName()+" really hates "+ppp1.getName());
 			}
 		}
 		else if(interestp1>1.2) {
 			
 			if(interestp2>1.8) {
-				System.out.print(ppp2.getName()+" love "+ppp1.getName());
-				System.out.print(ppp1.getName()+" found "+ppp2.getName()+" quite attractive");
+				System.out.println(ppp2.getName()+" love "+ppp1.getName());
+				System.out.println(ppp1.getName()+" found "+ppp2.getName()+" quite attractive");
 			}
 			else if(interestp2>1.2) {
 				
-				System.out.print(ppp2.getName()+" and "+ppp1.getName()+" both found each other wuite attractive");
+				System.out.println(ppp2.getName()+" and "+ppp1.getName()+" both found each other wuite attractive");
 			}
 			else if(interestp2>0.6) {
-				System.out.print(ppp1.getName()+" found "+ppp2.getName()+" quite attractive");
-				System.out.print(ppp2.getName()+" is friend with "+ppp1.getName());
+				System.out.println(ppp1.getName()+" found "+ppp2.getName()+" quite attractive");
+				System.out.println(ppp2.getName()+" is friend with "+ppp1.getName());
 			}
 			else if(interestp2>0.0) {
-				System.out.print(ppp1.getName()+" found "+ppp2.getName()+" quite attractive");
-				System.out.print(ppp2.getName()+" really hates "+ppp1.getName());
+				System.out.println(ppp1.getName()+" found "+ppp2.getName()+" quite attractive");
+				System.out.println(ppp2.getName()+" really hates "+ppp1.getName());
 			}
 		}
 		else if(interestp1>0.6) {
 			
 			if(interestp2>1.8) {
-				System.out.print(ppp2.getName()+" love "+ppp1.getName());
-			System.out.print(ppp1.getName()+" is friend with "+ppp2.getName());
+				System.out.println(ppp2.getName()+" love "+ppp1.getName());
+			System.out.println(ppp1.getName()+" is friend with "+ppp2.getName());
 		}
 		else if(interestp2>1.2) {
-			System.out.print(ppp2.getName()+" found "+ppp1.getName()+" quite attractive");
-			System.out.print(ppp1.getName()+" is friend with "+ppp2.getName());
+			System.out.println(ppp2.getName()+" found "+ppp1.getName()+" quite attractive");
+			System.out.println(ppp1.getName()+" is friend with "+ppp2.getName());
 		}
 		else if(interestp2>0.6) {
 
-			System.out.print(ppp2.getName()+" is friend with "+ppp1.getName());
+			System.out.println(ppp2.getName()+" is friend with "+ppp1.getName());
 		}
 			else if(interestp2>0.0) {
-				System.out.print(ppp1.getName()+" is friend with "+ppp2.getName());
-				System.out.print(ppp2.getName()+" really hates "+ppp1.getName());
+				System.out.println(ppp1.getName()+" is friend with "+ppp2.getName());
+				System.out.println(ppp2.getName()+" really hates "+ppp1.getName());
 			}
 		}
 		else {
 			if(interestp2>1.8) {
-				System.out.print(ppp2.getName()+" love "+ppp1.getName());
-				System.out.print(ppp1.getName()+" really hates "+ppp2.getName());
+				System.out.println(ppp2.getName()+" love "+ppp1.getName());
+				System.out.println(ppp1.getName()+" really hates "+ppp2.getName());
 			}
 			else if(interestp2>1.2) {
-				System.out.print(ppp2.getName()+" found "+ppp1.getName()+" quite attractive");
-				System.out.print(ppp1.getName()+" really hates "+ppp2.getName());
+				System.out.println(ppp2.getName()+" found "+ppp1.getName()+" quite attractive");
+				System.out.println(ppp1.getName()+" really hates "+ppp2.getName());
 			}
 			else if(interestp2>0.6) {
-				System.out.print(ppp1.getName()+" really hates "+ppp2.getName());
-				System.out.print(ppp2.getName()+" is friend with "+ppp1.getName());
+				System.out.println(ppp1.getName()+" really hates "+ppp2.getName());
+				System.out.println(ppp2.getName()+" is friend with "+ppp1.getName());
 			}
 			else if(interestp2>0.0) {
 
-				System.out.print(ppp2.getName()+" and "+ppp1.getName()+" really hates each other");
+				System.out.println(ppp2.getName()+" and "+ppp1.getName()+" really hates each other");
 			}
 		}
 		

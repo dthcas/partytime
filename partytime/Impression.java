@@ -15,6 +15,7 @@ public class Impression {
 		this.interesting = i_interesting;
 		this.attractive = i_attractive;
 		this.kind = i_kind;
+		this.chemistry = Math.random()*2;
 	}
 	
 	public void setInteresting(double i) {

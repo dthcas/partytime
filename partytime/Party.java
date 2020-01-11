@@ -40,8 +40,7 @@ public class Party {
 		Person p1;
 		Person p2;
 		//main loop of conversations
-		for(int i=0; i<songs; i++) {
-			this.changeMusic();
+		while(this.playlist.getCurrentSong()!=null) {
 			
 			for(int j=0; j<this.attendees/2; j++) {
 				p1 = getFreeGuest();
@@ -62,9 +61,12 @@ public class Party {
 				
 				this.guests[k].endConversation();
 			}
+			
+			this.changeMusic();
 		}
 	}
 	
+	// Find a guest that isn't in a conversation
 	private Person getFreeGuest() {
 		
 		int total = this.attendees;
@@ -88,7 +90,8 @@ public class Party {
 	
 	private void changeMusic() {
 		Music cur_song = this.playlist.getNextSong();
-		System.out.println("** "+cur_song.getTitle()+" by "+cur_song.getArtist()+" is now playing **");
+		if(cur_song != null)
+			System.out.println("** "+cur_song.getTitle()+" by "+cur_song.getArtist()+" is now playing **");
 	}
 	
 	public int getGuests() {

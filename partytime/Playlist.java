@@ -8,7 +8,12 @@ public class Playlist {
    
    public Playlist(Music[] m) {
 	   this.playlist = m;
-	   cur_song = 0;
+	   this.cur_song = 0;
+   }
+   public Music getCurrentSong() {
+	   
+	   if(this.playlist == null) return null;
+	   else return this.playlist[this.cur_song];
    }
    
    public Music getNextSong() {

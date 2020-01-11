@@ -14,19 +14,19 @@ public class Topic {
 	}
 	public Topic(String t_name, String[] t_statements, String[] t_replies) {
 		
-		name = t_name;
-		statements = t_statements;
-		replies = t_replies;
+		this.name = t_name;
+		this.statements = t_statements;
+		this.replies = t_replies;
 	}
 	
 	public String getName()
 	{
-		return name;
+		return this.name;
 	}
 	
 	public int getInterest()
 	{
-		return interest;
+		return this.interest;
 	}
 	
 	public double getImportance()

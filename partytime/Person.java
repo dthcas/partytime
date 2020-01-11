@@ -67,18 +67,22 @@ public class Person {
 		return;	
 	}
 	
-	public int getInterestLevel(String name) {
+	public int getInterestLevel(Topic t) {
 		
-		Topic t=null;
+		Topic pt=null;
 		for(int i=0; i<this.topics.length; i++) {
-			if(this.topics[i].getName().equals(name)) {
-				t = this.topics[i];
+			if(this.topics[i].getName().equals(t.getName())) {
+				pt = this.topics[i];
 				break;
 			}
 		}
 
-		if(t==null) return 0;
-		else return t.getInterest();
+		if(pt==null) {
+			this.addTopic(t);
+			return this.getInterestLevel(t);
+		}
+		
+		return pt.getInterest();
 	}
 
 	public void updateInterestLevelManual(int id, String name, double tk) {
@@ -100,7 +104,7 @@ public class Person {
 	}
 	
 	public double listen(Person p, Topic t) {
-		return Math.sqrt(p.getInterestLevel(t.getName()) * ((attractiveness+intelligence+charisma)/3));
+		return Math.sqrt(p.getInterestLevel(t) * ((attractiveness+intelligence+charisma)/3));
 	}
 	
 	private void judge(Person pr, Topic t) {
@@ -153,7 +157,7 @@ public class Person {
 	// remember to recover back to the original array before changing it (to-be fixed)
 	public double getImpression(int id) {
 		
-		int lenI;
+		int lenI=0;
 		
 		if(this.impressions == null) lenI = 0;
 		else { 
