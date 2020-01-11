@@ -67,13 +67,18 @@ public class Person {
 		return;	
 	}
 	
-	public double getInterestLevel(int id, String name) {
-		Party p = new Party();
-		int lenI = this.impressions.length; int lenP = p.guests.length - 1;
-		int resT = Person_Util.linearSearchTopic(this.topics, name);
-		Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
-		int resI = Person_Util.binarySearchPerson(guestsSorted, 0, lenI - 1, id);
-		return p.guests[resI].getTopics()[resT].getInterest();
+	public int getInterestLevel(String name) {
+		
+		Topic t=null;
+		for(int i=0; i<this.topics.length; i++) {
+			if(this.topics[i].getName().equals(name)) {
+				t = this.topics[i];
+				break;
+			}
+		}
+
+		if(t==null) return 0;
+		else return t.getInterest();
 	}
 
 	public void updateInterestLevelManual(int id, String name, double tk) {
@@ -95,7 +100,7 @@ public class Person {
 	}
 	
 	public double listen(Person p, Topic t) {
-		return Math.sqrt(p.getInterestLevel(p.getId(), t.getName()) * ((attractiveness+intelligence+charisma)/3));
+		return Math.sqrt(p.getInterestLevel(t.getName()) * ((attractiveness+intelligence+charisma)/3));
 	}
 	
 	private void judge(Person pr, Topic t) {
@@ -147,19 +152,52 @@ public class Person {
 	// array have matching index with the guests array **impression object**
 	// remember to recover back to the original array before changing it (to-be fixed)
 	public double getImpression(int id) {
-		Party p = new Party();
-		int lenI = this.impressions.length; int lenP = p.guests.length - 1;
-		Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
-		int resI = Person_Util.binarySearchPerson(guestsSorted, 0, lenI - 1, id);
-		return impressions[resI].getImpression(this, guestsSorted[resI]);
+		
+		int lenI;
+		
+		if(this.impressions == null) lenI = 0;
+		else { 
+			
+			lenI = this.impressions.length;
+		
+			for(int i=0; i<lenI; i++) {
+				if(this.impressions[i].getId()==id)
+					return this.impressions[i].getImpression();
+			}
+		}
+		
+		Impression ni = new Impression(id,1,1,1);	
+		this.impressions = new Impression[lenI+1]; 
+		this.impressions[lenI] = ni;
+		return ni.getImpression();
+			
 	}
 	
 	public void setImpression(int id, double tk) {
-		Party p = new Party();
-		int lenI = this.impressions.length; int lenP = p.guests.length - 1;
-		Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
-		int resI = Person_Util.binarySearchPerson(guestsSorted, 0, lenI - 1, id);
-		this.impressions[resI].setImpression(tk);
+		//Party p = new Party();
+		int lenI = 0;
+		int index = -1;
+		if(this.impressions != null) {
+			lenI = this.impressions.length;		
+		
+			for(int i=0; i<lenI; i++) {
+				if(this.impressions[i].getId()==id)
+					index=i;
+			}
+		}
+
+		if(index<0) {
+			Impression[] newImpArr = new Impression[lenI+1];
+			for(int j=0; j<lenI; j++) {
+				newImpArr[j] = this.impressions[j];
+			}
+			Impression newImp = new Impression(id,1.0,1.0,1.0);
+			this.impressions = newImpArr;
+			index = lenI;
+		}
+		
+		this.impressions[index].setInteresting(tk);
+		
 	}
 	
 	public static void main(String[] args) {
@@ -238,7 +276,7 @@ class Person_Util {
 
 	public static int linearSearchTopic(Topic arr[], String name) { 
 		int n = arr.length; 
-		for(int i = 0; i < n; i++) {if (arr[i].equals(name)) return i;} 
+		for(int i = 0; i < n; i++) {if (arr[i].getName().equals(name)) return i;} 
 		return -1; 
 	} 
 

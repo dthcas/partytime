@@ -11,27 +11,27 @@ public class Impression {
 	private double overallimpression;
 	
 	public Impression(int i_id, double i_interesting, double i_attractive, double i_kind){
-		id = i_id;
-		interesting = i_interesting;
-		attractive = i_attractive;
-		kind = i_kind;
+		this.id = i_id;
+		this.interesting = i_interesting;
+		this.attractive = i_attractive;
+		this.kind = i_kind;
 	}
 	
 	public void setInteresting(double i) {
-		interesting = i;
+		this.interesting = i;
 	}
 	
 	public void setAttractive(double a) {
-		attractive = a;
+		this.attractive = a;
 	}
 	
 	public void setKind(double k) {
-		kind = k;
+		this.kind = k;
 	}
 
 	public void setChemistry(double c) {
 
-		chemistry = c;
+		this.chemistry = c;
 	}
 	
 	public double getChemistry() {
@@ -48,6 +48,7 @@ public class Impression {
 		return overallimpression;
 	}
 	
-	public void setImpression(double tk) {overallimpression *= tk;}
+	public void setImpression(double tk) {
+		this.overallimpression *= tk;}
 	
 }

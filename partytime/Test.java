@@ -33,11 +33,11 @@ public class Test {
 			p_topics = p_test[i].getTopics();
 			for(int j=0; j<p_topics.length-1; j++) {
 				if(j>0) System.out.print(", ");
-				System.out.printf(p_topics[j].getName()+" ("+"%.2f"+")",p_topics[j].getInterest());
+				System.out.print(p_topics[j].getName()+" ("+p_topics[j].getInterest()+")");
 			}
-			System.out.printf(" and "+p_topics[p_topics.length-1].getName()+" ("+"%.2f"+")"+"\n",p_topics[p_topics.length-1].getInterest());
+			System.out.print(" and "+p_topics[p_topics.length-1].getName()+" ("+p_topics[p_topics.length-1].getInterest()+")");
 			speakTopic = p_test[i].speak();
-			System.out.println(fname+" says \""+speakTopic.getStatement((int)(speakTopic.getInterest()*10))+"\"");
+			System.out.println("\n"+fname+" says \""+speakTopic.getStatement((int)(speakTopic.getInterest()*10))+"\"");
 		}
 		System.out.println("\nList of Topic Statements");
 		for(int i=0; i<t; i++) {
