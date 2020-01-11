@@ -168,7 +168,7 @@ public class Party {
 	
 	public static void main(String[] args) { 
 		
-		Party p = new Party(10,3);
+		Party p = new Party();
 		p.startParty();
 		p.endParty();
 		
