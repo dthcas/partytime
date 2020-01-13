@@ -52,6 +52,7 @@ public class Party {
 				else continue;
 				
 				this.conversations[this.convo_num] = new Conversation(p1,p2,this.convo_num);
+				System.out.println("Conversation "+(convo_num+1)+":");
 				this.conversations[this.convo_num].beginConversation();
 				this.conversations[this.convo_num].endConversation();
 				this.convo_num++;
