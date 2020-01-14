@@ -35,7 +35,7 @@ public class Party {
 		int total_convos = attendees*songs/2;
 		this.conversations = new Conversation[total_convos];
 		
-		System.out.println("The party has started with "+this.attendees+" guests and "+this.songs+" songs to play");
+		System.out.println("[PARTY] The party has started with "+this.attendees+" guests and "+this.songs+" songs to play");
 		
 		Person p1;
 		Person p2;
@@ -53,7 +53,7 @@ public class Party {
 				else continue;
 				
 				this.conversations[this.convo_num] = new Conversation(p1,p2,this.convo_num);
-				System.out.println("Conversation "+(convo_num+1)+":");
+				System.out.println("\n[PARTY] Conversation "+(convo_num+1)+":");
 				this.conversations[this.convo_num].beginConversation();
 				this.conversations[this.convo_num].endConversation();
 				this.convo_num++;
@@ -97,7 +97,7 @@ public class Party {
 	
 	private void printMusic(Music m) {
 		if(m != null)
-			System.out.println("** "+m.getTitle()+" by "+m.getArtist()+" is now playing **");
+			System.out.println("[MUSIC] ** "+m.getTitle()+" by "+m.getArtist()+" is now playing **");
 	}
 	
 	public int getGuests() {
@@ -109,7 +109,7 @@ public class Party {
 			guests[attendees]=p;
 		}
 		else {
-			System.out.println("Opps, there is too many people in the party");
+			System.out.println("[PARTY] Opps, there is too many people in the party");
 		}
 	}
 	
@@ -152,7 +152,7 @@ public class Party {
 	
 	public void endParty() {
 		
-		System.out.println("** The music stops, guests go home.. the party is over **");
+		System.out.println("[PARTY] ** The music stops, guests go home.. the party is over **");
 		Person p;
 		Person pi;
 		Impression[] imp;
