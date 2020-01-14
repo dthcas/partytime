@@ -85,13 +85,13 @@ public class Person {
 		return pt.getInterest();
 	}
 
-	public void updateInterestLevelManual(int id, String name, double tk) {
-		Party p = new Party();
-		int lenI = this.impressions.length; int lenP = p.guests.length - 1;
-		int resT = Person_Util.linearSearchTopic(this.topics, name);
-		Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
-		int resI = Person_Util.binarySearchPerson(guestsSorted, 0, lenI - 1, id);
-		p.guests[resI].getTopics()[resT].setInterest(tk);
+	public void updateInterestLevelManual(Person p, String name, double tk) {
+		//Party p = new Party();
+		//int lenI = this.impressions.length; int lenP = p.guests.length - 1;
+		//int resT = Person_Util.linearSearchTopic(this.topics, name);
+		//Person[] guestsSorted = Person_Util.quickSortPerson(p.guests, 0, lenP);
+		//int resI = Person_Util.binarySearchPerson(guestsSorted, 0, lenI - 1, id);
+		//p.guests[resI].getTopics()[resT].setInterest(tk);
 	}
 	
 	public double getAttribute(String arg) {
@@ -158,9 +158,11 @@ public class Person {
 	// for the two functions below, it is assumed that the `impression`
 	// array have matching index with the guests array **impression object**
 	// remember to recover back to the original array before changing it (to-be fixed)
-	public double getImpression(int id) {
+	public double getImpression(Person p) {
 		
 		int lenI=0;
+		int id = p.getId();
+		//boolean imp_found = false;
 		
 		if(this.impressions == null) lenI = 0;
 		else { 
@@ -173,20 +175,25 @@ public class Person {
 			}
 		}
 		
-		Impression ni = new Impression(id,1,1,1);	
-		this.impressions = new Impression[lenI+1]; 
-		this.impressions[lenI] = ni;
-		return ni.getImpression();
+		// case where no return value is given, generate a new impression
+		setImpression(p,1);
+		return(this.impressions[lenI].getImpression());
 			
 	}
 	
-	public void setImpression(int id, double tk) {
+	public void setImpression(Person p, double tk) {
 		//Party p = new Party();
 		int lenI = 0;
 		int index = -1;
+		int id = p.getId();
+		double pa = p.getAttribute("attractive");
+		double pc = p.getAttribute("charisma");
+		// using this to generate a value for kindness
+		double pk = Math.random()+0.5*pc;
+		
 		if(this.impressions != null) {
 			lenI = this.impressions.length;		
-		
+			// look for an existing impression
 			for(int i=0; i<lenI; i++) {
 				if(this.impressions[i].getId()==id)
 					index=i;
@@ -198,18 +205,13 @@ public class Person {
 			for(int j=0; j<lenI; j++) {
 				newImpArr[j] = this.impressions[j];
 			}
-			Impression newImp = new Impression(id,1.0,1.0,1.0);
+			Impression newImp = new Impression(id,tk,pa,pk);
+			newImpArr[lenI] = newImp;
 			this.impressions = newImpArr;
 			index = lenI;
 		}
 		
-		this.impressions[index].setInteresting(tk);
-		
-	}
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		//this.impressions[index].setInteresting(tk);	
 	}
 
 }
@@ -219,7 +221,8 @@ public class Person {
 
 class Person_Impression {
 	
-	private int id; private double interesting, attractive, kind, chemistry;
+	private int id; 
+	private double interesting, attractive, kind, chemistry;
 	
 	public void setInteresting(double i) {this.interesting = i;}
 	public void setAttractive(double a) {this.attractive = a;}
