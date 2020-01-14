@@ -165,7 +165,7 @@ public class Party {
 			
 			for(int j=0; j<imp.length; j++) {
 				pi = getPerson(imp[j].getId());
-				System.out.println("\t"+pi.getName()+": "+imp[j].getImpression());
+				System.out.printf("\t"+pi.getName()+": "+"%.2f\n",imp[j].getImpression());
 			}
 			
 		}

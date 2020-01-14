@@ -13,16 +13,19 @@ public class Playlist {
    public Music getCurrentSong() {
 	   
 	   if(this.playlist == null) return null;
-	   else return this.playlist[this.cur_song];
+	   else if(cur_song >= this.playlist.length) return null;
+	   else return this.playlist[cur_song];
    }
    
    public Music getNextSong() {
    
-	   if(cur_song+1 < this.playlist.length-1) {
+	   if(cur_song+1 < this.playlist.length) {
 		   cur_song++;
 		   return this.playlist[cur_song];
 	   }
 	   else {
+		   System.out.println("The playlist has ended");
+		   cur_song++;
 		   return null;
 	   }
    }
