@@ -24,7 +24,7 @@ public class Playlist {
 		   return this.playlist[cur_song];
 	   }
 	   else {
-		   System.out.println("The playlist has ended");
+		   System.out.println("[MUSIC] The playlist has ended");
 		   cur_song++;
 		   return null;
 	   }

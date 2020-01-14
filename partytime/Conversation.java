@@ -59,7 +59,7 @@ public class Conversation {
 			impression = p1.getName() + " smiles at " + p2.getName();
 		}
 		else if(p2a>1.0) {
-			impression = p1.getName() + " thinks " + p2.getName() + " quite good looking";
+			impression = p1.getName() + " thinks " + p2.getName() + "is quite good looking";
 		}
 		else if(p2a>0.8) {
 			impression=p1.getName()+" thinks "+p2.getName()+" seems nice";
