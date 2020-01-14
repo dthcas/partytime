@@ -81,7 +81,7 @@ public class Conversation {
 		else impression += " but ";
 		
 		if(p2c>1.7) {
-			impression += "finds them extremely charming.";
+			impression += "extremely charming.";
 		}
 		else if(p2c>1.4) {
 			impression += "thinks there is something very interesting about them.";
@@ -93,10 +93,10 @@ public class Conversation {
 			impression += "not so interesting.";
 		}
 		else if(p2c>0.3) {
-			impression += "thinks they seem pretty boring.";
+			impression += "pretty boring.";
 		}
 		else {
-			impression += "can't wait to get away.";
+			impression += "can't wait to talk to someone else.";
 		}
 		
 		return prefix+impression;
