@@ -39,6 +39,7 @@ public class Party {
 		
 		Person p1;
 		Person p2;
+		printMusic(this.playlist.getCurrentSong());
 		//main loop of conversations
 		while(this.playlist.getCurrentSong()!=null) {
 			
@@ -90,8 +91,12 @@ public class Party {
 	
 	private void changeMusic() {
 		Music cur_song = this.playlist.getNextSong();
-		if(cur_song != null)
-			System.out.println("** "+cur_song.getTitle()+" by "+cur_song.getArtist()+" is now playing **");
+		printMusic(cur_song);
+	}
+	
+	private void printMusic(Music m) {
+		if(m != null)
+			System.out.println("** "+m.getTitle()+" by "+m.getArtist()+" is now playing **");
 	}
 	
 	public int getGuests() {

@@ -104,7 +104,10 @@ public class Person {
 	}
 	
 	public double listen(Person p, Topic t) {
-		return Math.sqrt(p.getInterestLevel(t) * ((attractiveness+intelligence+charisma)/3));
+		double pa = p.getAttribute("attractiveness");
+		double pi = p.getAttribute("intelligence");
+		double pc = p.getAttribute("charisma");
+		return Math.sqrt(p.getInterestLevel(t)* 0.1 * ((pa+pi+pc)/3));
 	}
 	
 	private void judge(Person pr, Topic t) {
